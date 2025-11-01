@@ -47,11 +47,11 @@ export default {
 .legal-page {
   width: 100%;
   min-height: 100vh;
-  background: #f1eee9;
+  background: #ffffff;
 }
 
 .legal-header {
-  background: #f1eee9;
+  background: #ffffff;
   padding: 120px 0 60px 0;
   border-bottom: 2px solid #8b7355;
   text-align: center;

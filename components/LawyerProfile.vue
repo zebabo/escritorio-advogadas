@@ -1,41 +1,60 @@
 <template>
-  <div class="main-content">
-    <section class="lawyer-profile">
-      <div class="container">
-        <div class="profile-card">
-          <div class="profile-content" :class="{ 'reverse-layout': reverse }">
-            <div class="profile-text">
-              <p class="profile-label">{{ label }}</p>
-              <h1 class="lawyer-name">
-                {{ formattedName }}
-              </h1>
-              <div class="divider"></div>
-              <p class="service-description" v-html="formattedDescription"></p>
-
-              <!-- Botão de expandir/colapsar -->
-              <button
-                @click="toggleExpanded"
-                class="expand-button"
-                :aria-label="isExpanded ? 'Menos informação' : 'Mais informação'"
-              >
-                <span class="expand-icon">{{ isExpanded ? '×' : '+' }}</span>
-              </button>
-            </div>
-            <div class="profile-image">
-              <img :src="imageUrl" :alt="`${label} ${name}`" class="lawyer-photo" />
-            </div>
-          </div>
-        </div>
-
-        <!-- Pop-up overlay -->
-        <div class="popup-overlay" :class="{ active: isExpanded }" @click="closePopup">
-          <div class="popup-content" @click.stop>
-            <button class="close-button" @click="closePopup">×</button>
-            <div class="popup-info" v-if="extraInfo" v-html="extraInfo"></div>
-          </div>
+  <div class="lawyer-profile" :class="{ reverse: reverse }">
+    <div class="profile-container">
+      <!-- Imagem do perfil -->
+      <div class="profile-image-wrapper">
+        <div class="image-container">
+          <img
+            :src="imageUrl"
+            :alt="name"
+            class="profile-image"
+            :style="{ transform: `scale(${imageScale / 100})` }"
+          />
         </div>
       </div>
-    </section>
+
+      <!-- Conteúdo do perfil -->
+      <div class="profile-content">
+        <div class="content-box">
+          <div class="profile-header">
+            <h2 class="profile-name">{{ name }}</h2>
+            <div class="name-divider"></div>
+            <span class="profile-label">{{ label }}</span>
+          </div>
+
+          <p class="profile-description" v-html="description.replace(/\n/g, '<br>')"></p>
+
+          <!-- Botão de expandir -->
+          <button
+            class="expand-button"
+            @click="toggleExpanded"
+            :class="{ active: isExpanded }"
+          >
+            <span class="button-icon">{{ isExpanded ? '−' : '+' }}</span>
+          </button>
+
+          <!-- Informação extra (expandível inline para mobile) -->
+          <transition name="slide-fade">
+            <div v-if="isExpanded && !isDesktop" class="extra-info" v-html="extraInfo"></div>
+          </transition>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para desktop -->
+    <transition name="modal-fade">
+      <div v-if="isExpanded && isDesktop" class="modal-overlay" @click="closeModal">
+        <div class="modal-content" @click.stop>
+          <button class="modal-close" @click="closeModal">×</button>
+          <div class="modal-header">
+            <span class="modal-label">{{ label }}</span>
+            <h3 class="modal-name">{{ name }}</h3>
+            <div class="modal-divider"></div>
+          </div>
+          <div class="modal-body" v-html="extraInfo"></div>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -45,673 +64,500 @@ export default {
   props: {
     label: {
       type: String,
-      default: 'ADVOGADA',
+      default: 'ADVOGADA'
     },
     name: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
       type: String,
-      default: 'Serviço jurídico com discrição e prontidão',
+      required: true
     },
     extraInfo: {
       type: String,
-      default: '',
+      default: ''
     },
     imageUrl: {
       type: String,
-      required: true,
+      required: true
     },
     reverse: {
       type: Boolean,
-      default: false,
+      default: false
     },
+    imageScale: {
+      type: Number,
+      default: 100
+    }
   },
   data() {
     return {
       isExpanded: false,
+      isDesktop: false
     }
   },
-  computed: {
-    formattedName() {
-      // Quebra o nome em linhas se contiver espaço
-      return this.name.replace(/\s+/g, '\n')
-    },
-    formattedDescription() {
-      return this.description.replace(/\n/g, '<br />')
-    },
-  },
-  methods: {
-    toggleExpanded() {
-      this.isExpanded = !this.isExpanded
-      if (this.isExpanded) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.overflow = 'auto'
-      }
-    },
-    closePopup() {
-      this.isExpanded = false
-      document.body.style.overflow = 'auto'
-    },
+  mounted() {
+    this.checkScreenSize()
+    window.addEventListener('resize', this.checkScreenSize)
   },
   beforeUnmount() {
-    // Garante que o scroll volta ao normal se o componente for destruído
-    document.body.style.overflow = 'auto'
+    window.removeEventListener('resize', this.checkScreenSize)
   },
+  methods: {
+    checkScreenSize() {
+      this.isDesktop = window.innerWidth > 768
+    },
+    toggleExpanded() {
+      this.isExpanded = !this.isExpanded
+      if (this.isDesktop && this.isExpanded) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = ''
+      }
+    },
+    closeModal() {
+      this.isExpanded = false
+      document.body.style.overflow = ''
+    }
+  }
 }
 </script>
 
 <style scoped>
-.main-content {
-  min-height: 100vh;
-  background: #f1eee9;
-  padding: 60px 0 80px 0;
-  display: flex;
-  align-items: center;
-}
-
-.container {
+.lawyer-profile {
   width: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  margin-top: 20px;
+  padding: 60px 20px;
+  background: #ffffff;
 }
 
-.profile-card {
-  background: #f1eee9;
-  border: 2px solid #8b7355;
-  border-radius: 0;
-  overflow: visible;
-  width: 80%;
+.profile-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
   position: relative;
-  margin-left: 9.9vw;
+  border: 2px solid #5c5545;
+  background: #ffffff;
+}
+
+/* Layout normal - imagem à direita */
+.profile-image-wrapper {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  order: 2;
 }
 
 .profile-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  min-height: 500px;
-}
-
-.profile-content.reverse-layout {
-  grid-template-columns: 1fr 2fr;
-}
-
-.profile-content.reverse-layout .profile-text {
-  order: 2;
-  margin-left: 280px;
-  align-items: flex-end;
-  text-align: right;
-}
-
-.profile-content.reverse-layout .profile-image {
+  flex: 1;
   order: 1;
 }
 
-.profile-content.reverse-layout .lawyer-photo {
-  margin-left: 140px;
+/* Layout invertido - imagem à esquerda */
+.lawyer-profile.reverse .profile-image-wrapper {
+  order: 1;
 }
 
-.profile-text {
-  padding: 80px 60px;
-  background: #f1eee9;
+.lawyer-profile.reverse .profile-content {
+  order: 2;
+}
+
+/* Container da imagem */
+.image-container {
+  width: 500px;
+  height: 650px;
   display: flex;
-  flex-direction: column;
+  align-items: flex-end;
   justify-content: center;
-  align-items: flex-start;
-  margin-left: 180px;
-  max-width: 600px;
+  overflow: visible;
   position: relative;
 }
 
 .profile-image {
-  background: #f1eee9;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: auto;
+  height: 120%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center bottom;
+  transform-origin: bottom center;
   position: relative;
-  overflow: visible;
-  z-index: 2;
+  z-index: 1;
 }
 
-.lawyer-photo {
-  width: 120%;
-  height: 120%;
-  object-fit: cover;
-  object-position: center top;
-  filter: sepia(20%) saturate(120%) brightness(105%);
+/* Caixa de conteúdo */
+.content-box {
+  background: #ffffff;
+  border: none;
+  padding: 60px 80px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  top: -10%;
-  margin-right: 100px;
+}
+
+.profile-header {
+  margin-top: 60px;
 }
 
 .profile-label {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  color: #8b7355;
+  font-weight: 300;
+  display: block;
+  margin-top: 20px;
+  font-family: 'Object Sans', sans-serif;
+}
+
+.profile-name {
   font-size: 5rem;
-  color: #5c5545;
   font-weight: 300;
+  color: #5c5545;
+  line-height: 1.1;
   margin: 0 0 20px 0;
-  text-transform: uppercase;
-  font-family: 'Object Sans' sans-serif;
+  font-family: 'Playfair Display', serif;
+font-style: italic;
 }
 
-.lawyer-name {
-  font-size: 8rem;
-  font-weight: 100;
-  color: #5c5545;
-  line-height: 0.9;
-  margin: 0 0 30px 0;
-  font-family: 'Noto Serif Display';
-  white-space: pre-line;
-}
-
-.divider {
-  width: 200px;
-  height: 4px;
+.name-divider {
+  width: 100px;
+  height: 3px;
   background: #5c5545;
-  margin: 0 0 30px 0;
 }
 
-.service-description {
-  font-size: 3rem;
+.profile-description {
+  font-size: 1.8rem;
   color: #5c5545;
   font-weight: 300;
-  line-height: 1.2;
-  margin: 0;
-  font-family: 'Object Sans' sans-serif;
+  line-height: 1.5;
+  margin: 40px 0;
+ font-family: 'Aileron', sans-serif;
+  font-style: italic;
 }
 
-/* Botão de expandir/colapsar */
+/* Botão de expandir */
 .expand-button {
-  background: #5c5545;
-  color: #f1eee9;
-  border: none;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  background: #5c5545;
+  border: none;
+  color: #f1eee9;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  margin-top: 30px;
-  transition: all 0.3s ease;
-  font-size: 2rem;
-  font-weight: 300;
-  z-index: 10;
-  position: relative;
+  margin-top: auto;
 }
 
 .expand-button:hover {
-  background: #4a473a;
+  background: #8b7355;
   transform: scale(1.1);
 }
 
-.expand-button:focus {
-  outline: 2px solid #8b7355;
-  outline-offset: 2px;
+.expand-button.active {
+  background: #8b7355;
+  transform: rotate(180deg);
 }
 
-.expand-icon {
+.button-icon {
   line-height: 1;
-  font-family: 'Object Sans' sans-serif;
+  font-weight: 300;
 }
 
-.profile-content.reverse-layout .expand-button {
-  align-self: flex-end;
+/* Informação extra */
+.extra-info {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #8b7355;
+  font-size: 1.6rem;
+  color: #5c5545;
+  line-height: 1.8;
 }
 
-/* Pop-up styles */
-.popup-overlay {
+.extra-info strong {
+  color: #8b7355;
+  font-weight: 500;
+}
+
+/* Animação de transição inline (mobile) */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.4s ease;
+}
+
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Modal (desktop) */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: rgba(92, 85, 69, 0.8);
+  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
+  padding: 20px;
 }
 
-.popup-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.popup-content {
-  background: rgba(241, 238, 233, 0.95);
-  border: 2px solid #8b7355;
-  padding: 50px;
-  max-width: 800px;
-  max-height: 80vh;
+.modal-content {
+  background: #f1eee9;
+  border: 2px solid #5c5545;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
   overflow-y: auto;
+  padding: 60px 50px;
   position: relative;
-  margin: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  transform: scale(0.9);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: #5c5545;
+  color: #f1eee9;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.modal-close:hover {
+  background: #8b7355;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  margin-bottom: 30px;
+}
+
+.modal-label {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  color: #8b7355;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 10px;
+  font-family: 'Object Sans', sans-serif;
+}
+
+.modal-name {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #5c5545;
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+  font-family: 'Playfair Display', serif;
+font-style: italic;
+
+}
+
+.modal-divider {
+  width: 100px;
+  height: 3px;
+  background: #5c5545;
+}
+
+.modal-body {
+  font-size: 1.8rem;
+  color: #5c5545;
+  line-height: 1.5;
+font-family: 'Aileron', sans-serif;
+  font-style: italic;
+}
+
+.modal-body strong {
+  color: #8b7355;
+  font-weight: 500;
+}
+
+/* Animação do modal */
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter-active .modal-content,
+.modal-fade-leave-active .modal-content {
   transition: transform 0.3s ease;
 }
 
-.popup-overlay.active .popup-content {
-  transform: scale(1);
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
 }
 
-.close-button {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #5c5545;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  line-height: 1;
+.modal-fade-enter-from .modal-content {
+  transform: scale(0.9) translateY(-20px);
 }
 
-.close-button:hover {
-  color: #4a473a;
-  transform: scale(1.1);
+.modal-fade-leave-to .modal-content {
+  transform: scale(0.9) translateY(-20px);
 }
 
-.popup-info {
-  font-size: 1.8rem;
-  color: #5c5545;
-  font-family: 'Object Sans' sans-serif;
-  line-height: 1.6;
-  margin-top: 20px;
-}
-
-.popup-info strong {
-  color: #4a473a;
-  font-weight: 600;
-  font-size: 2rem;
-}
-
-/* Media Queries - Mantidas as mesmas do original até o pop-up */
-@media (max-width: 1600px) {
-  .profile-label {
-    font-size: 4.5rem;
+/* Responsividade */
+@media (max-width: 1200px) {
+  .image-container {
+    width: 400px;
+    height: 520px;
   }
 
-  .lawyer-name {
-    font-size: 7.5rem;
+
+
+  .content-box {
+    padding: 50px 40px;
   }
 
-  .service-description {
-    font-size: 2.8rem;
-  }
-
-  .profile-text {
-    margin-left: 160px;
-    padding: 70px 50px;
-  }
-
-  .profile-content.reverse-layout .profile-text {
-    margin-left: 290px;
-  }
-}
-
-@media (max-width: 1400px) {
-  .profile-card {
-    width: 85%;
-    margin-left: 7.5vw;
-  }
-
-  .profile-label {
+  .profile-name {
     font-size: 4rem;
   }
 
-  .lawyer-name {
-    font-size: 7rem;
-  }
-
-  .service-description {
-    font-size: 2.6rem;
-  }
-
-  .profile-text {
-    margin-left: 140px;
-    padding: 60px 45px;
-    max-width: 550px;
-  }
-
-  .profile-content.reverse-layout .profile-text {
-    margin-left: 280px;
-  }
-
-  .lawyer-photo {
-    width: 120%;
-    height: 120%;
-    margin-right: 80px;
-  }
-
-  .profile-content.reverse-layout .lawyer-photo {
-    margin-left: 160px;
-  }
-}
-
-@media (max-width: 1200px) {
-  .profile-card {
-    width: 90%;
-    margin-left: 5vw;
-  }
-
-  .profile-label {
-    font-size: 3.5rem;
-  }
-
-  .lawyer-name {
-    font-size: 6rem;
-  }
-
-  .service-description {
-    font-size: 2.2rem;
-  }
-
-  .profile-text {
-    margin-left: 120px;
-    padding: 50px 40px;
-    max-width: 500px;
-  }
-
-  .profile-content.reverse-layout .profile-text {
-    margin-left: 200px;
-  }
-
-  .divider {
-    width: 180px;
-  }
-
-  .lawyer-photo {
-    width: 120%;
-    height: 120%;
-    margin-right: 60px;
-  }
-
-  .profile-content.reverse-layout .lawyer-photo {
-    margin-left: 90px;
-  }
-}
-
-@media (max-width: 1024px) {
-  .main-content {
-    padding: 40px 0 60px 0;
-  }
-
-  .profile-card {
-    width: 95%;
-    margin-left: 2.5vw;
-  }
-
-  .profile-content {
-    min-height: 450px;
-  }
-
-  .profile-label {
-    font-size: 3rem;
-  }
-
-  .lawyer-name {
-    font-size: 5rem;
-  }
-
-  .service-description {
+  .profile-description {
     font-size: 2rem;
   }
 
-  .profile-text {
-    margin-left: 80px;
-    padding: 40px 30px;
-    max-width: 450px;
-  }
 
-  .profile-content.reverse-layout .profile-text {
-    margin-left: 160px;
-  }
-
-  .divider {
-    width: 160px;
-    height: 3px;
-  }
-
-  .lawyer-photo {
-    width: 120%;
-    height: 120%;
-    margin-right: 40px;
-  }
-
-  .profile-content.reverse-layout .lawyer-photo {
-    margin-left: 60px;
-  }
-
-  .expand-button {
-    width: 50px;
-    height: 50px;
-    font-size: 1.8rem;
-  }
-
-  /* Pop-up adjustments for tablet */
-  .popup-content {
-    padding: 40px;
-    max-width: 90%;
-  }
-
-  .popup-info {
-    font-size: 1.6rem;
-  }
-
-  .popup-info strong {
-    font-size: 1.8rem;
-  }
 }
 
-@media (max-width: 900px) {
-  .profile-label {
-    font-size: 2.8rem;
+@media (max-width: 1024px) {
+  .image-container {
+    width: 350px;
+    height: 470px;
   }
 
-  .lawyer-name {
-    font-size: 4.5rem;
+
+  .profile-name {
+    font-size: 3.5rem;
   }
 
-  .service-description {
+  .profile-description {
     font-size: 1.8rem;
   }
 
-  .profile-text {
-    margin-left: 60px;
-    padding: 35px 25px;
-    max-width: 400px;
-  }
-
-  .profile-content.reverse-layout .profile-text {
-    margin-left: 120px;
-  }
-
-  .divider {
-    width: 140px;
-  }
-
-  .lawyer-photo {
-    width: 120%;
-    height: 120%;
-    margin-right: 60px;
-  }
-
-  .profile-content.reverse-layout .lawyer-photo {
-    margin-left: 120px;
+  .extra-info {
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 768px) {
-  .main-content {
-    padding: 20px 0;
+  .lawyer-profile {
+    padding: 40px 15px;
+  }
+
+  .profile-container {
+    flex-direction: column;
+    gap: 0;
+    border: 2px solid #5c5545;
+  }
+
+  .profile-image-wrapper,
+  .lawyer-profile.reverse .profile-image-wrapper {
+    order: 1;
+    flex: 0 0 auto;
+    width: 100%;
+    border-bottom: 2px solid #5c5545;
   }
 
   .profile-content,
-  .profile-content.reverse-layout {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .profile-text,
-  .profile-content.reverse-layout .profile-text {
-    padding: 100px 5vw;
-    text-align: center;
-    align-items: center;
-    margin-left: 0;
-    margin-right: 0;
-    max-width: none;
-    order: initial;
-  }
-
-  .profile-image,
-  .profile-content.reverse-layout .profile-image {
-    margin-right: 0;
-    order: initial;
-  }
-
-  .profile-content.reverse-layout .lawyer-photo {
-    margin-left: 0;
-    margin-right: 100px;
-  }
-
-  .lawyer-photo {
+  .lawyer-profile.reverse .profile-content {
+    order: 2;
     width: 100%;
-    height: 100%;
-    margin-left: 40px;
-    margin-top: 110px;
-    position: relative;
-    top: -5.9%;
+  }
+
+  .image-container {
+    width: 300px;
+    height: 380px;
+  }
+
+  .content-box {
+    padding: 40px 30px;
+  }
+
+  .profile-name {
+    font-size: 3rem;
+  }
+
+  .profile-description {
+    font-size: 1.6rem;
   }
 
   .profile-label {
-    font-size: 2.8rem;
+    font-size: 1.2rem;
   }
 
-  .lawyer-name {
-    font-size: 4.5rem;
-    text-align: center;
-  }
-
-  .divider {
-    width: 120px;
-    height: 3px;
-  }
-
-  .service-description {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .profile-image {
-    min-height: 400px;
-  }
-
-  .expand-button {
-    align-self: center;
-    width: 45px;
-    height: 45px;
-    font-size: 1.6rem;
-  }
-
-  .profile-content.reverse-layout .expand-button {
-    align-self: center;
-  }
-
-  /* Pop-up adjustments for mobile */
-  .popup-content {
-    padding: 30px;
-    margin: 10px;
-    max-height: 85vh;
-  }
-
-  .popup-info {
-    font-size: 1.4rem;
-  }
-
-  .popup-info strong {
-    font-size: 1.6rem;
-  }
-
-  .close-button {
-    font-size: 2.5rem;
-    top: 15px;
-    right: 20px;
+  .extra-info {
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 480px) {
-  .profile-text {
-    padding: 40px 5vw;
+  .lawyer-profile {
+    padding: 30px 10px;
+  }
+
+  .image-container {
+    width: 250px;
+    height: 320px;
+  }
+
+  .content-box {
+    padding: 30px 20px;
+  }
+
+  .profile-name {
+    font-size: 2.5rem;
+  }
+
+  .profile-description {
+    font-size: 1.4rem;
   }
 
   .profile-label {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
   }
 
-  .lawyer-name {
-    font-size: 3rem;
-  }
-
-  .divider {
-    width: 90px;
+  .name-divider {
+    width: 80px;
     height: 2px;
   }
 
-  .service-description {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .profile-image {
-    min-height: 300px;
-  }
-
-  .lawyer-photo {
-    width: 100%;
-    height: 100%;
-    margin-left: 40px;
-    margin-top: 110px;
-    position: relative;
-    top: -8.5%;
-  }
-
   .expand-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.4rem;
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
   }
 
-  /* Pop-up adjustments for small mobile */
-  .popup-content {
-    padding: 20px;
-    margin: 5px;
-    max-height: 90vh;
-  }
-
-  .popup-info {
+  .extra-info {
     font-size: 1.2rem;
-    margin-top: 15px;
-  }
-
-  .popup-info strong {
-    font-size: 1.4rem;
-  }
-
-  .close-button {
-    font-size: 2rem;
-    top: 10px;
-    right: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
   }
 }
 </style>

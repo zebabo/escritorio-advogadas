@@ -7,17 +7,36 @@
         <div class="contact-info">
           <div class="contact-item">
             <img src="/images/icons/mail.png" alt="Email" class="icon-img" />
-            <a href="mailto:geral@escritorio-advogadas.pt" class="contact-link">
-              <span>geral@escritorio-advogadas.pt</span>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=carina.babo@sscb.pt"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              <span>carina.babo@sscb.pt</span>
             </a>
           </div>
-          <div class="contact-item">
+
+ <div class="contact-item">
             <img src="/images/icons/mobile.png" alt="Telemóvel" class="icon-img" />
-            <span>+351 912 345 678</span>
+            <span>+351 910 035 536</span>
           </div>
+
           <div class="contact-item">
-            <img src="/images/icons/phone.png" alt="Telefone" class="icon-img" />
-            <span>+351 22 123 4567</span>
+            <img src="/images/icons/mail.png" alt="Email" class="icon-img" />
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=sara.santos.costa@sscb.pt"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-link"
+            >
+              <span>sara.santos.costa@sscb.pt</span>
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <img src="/images/icons/mobile.png" alt="Telefone" class="icon-img" />
+            <span>+351 918 844 926</span>
           </div>
         </div>
       </div>
@@ -90,10 +109,11 @@ export default {
 
 <style scoped>
 .footer {
-  background: #e4e2dd;
-  color: white;
+  background: #5c5545;
+  color: #f1eee9;
   padding: 60px 0 30px;
   margin-top: auto;
+  border-top: 2px solid #8b7355;
 }
 
 .footer-container {
@@ -107,11 +127,12 @@ export default {
 }
 
 .footer-section h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 300;
   margin-bottom: 25px;
-  color: #ecf0f1;
+  color: #f1eee9;
   position: relative;
+  font-family: 'Noto Serif Display', serif;
 }
 
 .footer-section h3::after {
@@ -121,7 +142,7 @@ export default {
   left: 0;
   width: 50px;
   height: 2px;
-  background: #4a6741;
+  background: #8b7355;
 }
 
 /* Contactos */
@@ -144,19 +165,20 @@ export default {
 }
 
 .contact-item:hover .icon-img {
-  filter: brightness(1.2);
+  filter: brightness(1.3);
 }
 
 .contact-item .icon-img {
   width: 20px;
   height: 20px;
-  filter: brightness(0.8);
+  filter: brightness(0.9) invert(1);
   transition: filter 0.3s ease;
 }
 
 .contact-item span {
   font-size: 1rem;
-  color: #bdc3c7;
+  color: #d4cfc4;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .contact-link {
@@ -166,17 +188,18 @@ export default {
 }
 
 .contact-link:hover {
-  color: #4a6741;
+  color: #f1eee9;
 }
 
 .contact-link span {
   font-size: 1rem;
-  color: #bdc3c7;
+  color: #d4cfc4;
   transition: color 0.3s ease;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .contact-link:hover span {
-  color: #4a6741;
+  color: #f1eee9;
 }
 
 /* Localização */
@@ -196,18 +219,6 @@ export default {
   transform: translateX(5px);
 }
 
-.location-item:hover .icon-img {
-  filter: brightness(1.2);
-}
-
-.location-item .icon-img {
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
-  filter: brightness(0.8);
-  transition: filter 0.3s ease;
-}
-
 .location-link {
   text-decoration: none;
   color: inherit;
@@ -216,18 +227,19 @@ export default {
 }
 
 .location-link:hover {
-  color: #4a6741;
+  color: #f1eee9;
 }
 
 .location-link div p {
   margin: 2px 0;
-  color: #bdc3c7;
+  color: #d4cfc4;
   font-size: 1rem;
   transition: color 0.3s ease;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .location-link:hover div p {
-  color: #4a6741;
+  color: #f1eee9;
 }
 
 /* Redes Sociais */
@@ -243,16 +255,15 @@ export default {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #4a473a;
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid #8b7355;
 }
 
 .social-link:hover {
-  background: rgba(74, 103, 65, 0.8);
+  background: #8b7355;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -264,19 +275,14 @@ export default {
 .social-icon-img {
   width: 24px;
   height: 24px;
-  filter: brightness(0.9);
+  filter: brightness(0.9) invert(1);
   transition: all 0.3s ease;
 }
 
 /* Divisória */
 .footer-divider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
-  );
+  height: 2px;
+  background: #8b7355;
   margin: 40px auto 30px;
   max-width: 1200px;
 }
@@ -295,8 +301,9 @@ export default {
 
 .copyright p {
   font-size: 0.9rem;
-  color: #95a5a6;
+  color: #a39d8f;
   margin: 0;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .legal-links {
@@ -306,18 +313,19 @@ export default {
 }
 
 .legal-link {
-  color: #95a5a6;
+  color: #a39d8f;
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .legal-link:hover {
-  color: #ecf0f1;
+  color: #f1eee9;
 }
 
 .separator {
-  color: #7f8c8d;
+  color: #8b7355;
   font-size: 0.8rem;
 }
 

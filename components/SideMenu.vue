@@ -101,15 +101,15 @@ export default {
   top: 25px;
   left: 25px;
   z-index: 1001;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: #f1eee9;
+  border: 2px solid #8b7355;
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   opacity: 1;
   visibility: visible;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .menu-button.menu-open {
@@ -118,15 +118,17 @@ export default {
 }
 
 .menu-button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #e8e4dc;
+  border-color: #5c5545;
   transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .menu-button span {
   display: block;
   width: 25px;
   height: 3px;
-  background: white;
+  background: #5c5545;
   margin: 5px 0;
   transition: 0.3s;
   border-radius: 2px;
@@ -151,11 +153,12 @@ export default {
   left: -350px;
   width: 350px;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
-  backdrop-filter: blur(20px);
+  background: #f1eee9;
   z-index: 1000;
   transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   padding: 0;
+  border-right: 3px solid #8b7355;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .side-menu.active {
@@ -167,19 +170,22 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 25px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 3px solid #8b7355;
+  background: #5c5545;
 }
 
 .menu-header h3 {
-  color: white;
-  font-size: 1.5rem;
+  color: #f1eee9;
+  font-size: 1.8rem;
   font-weight: 300;
+  font-family: 'Noto Serif Display', serif;
+  margin: 0;
 }
 
 .close-button {
   background: none;
   border: none;
-  color: white;
+  color: #f1eee9;
   font-size: 2rem;
   cursor: pointer;
   padding: 0;
@@ -188,11 +194,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .close-button:hover {
   transform: rotate(90deg);
+  color: #d4cfc4;
 }
 
 .menu-list {
@@ -202,24 +209,26 @@ export default {
 }
 
 .menu-list li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(139, 115, 85, 0.2);
 }
 
 .menu-link {
   display: block;
-  color: white;
+  color: #5c5545;
   text-decoration: none;
   padding: 20px 30px;
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
   transition: all 0.3s ease;
   position: relative;
+  font-family: 'Object Sans', sans-serif;
 }
 
 .menu-link:hover,
 .menu-link.router-link-active {
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(90deg, rgba(139, 115, 85, 0.15) 0%, transparent 100%);
   padding-left: 40px;
+  color: #8b7355;
 }
 
 .menu-link::before {
@@ -228,8 +237,8 @@ export default {
   left: 0;
   top: 0;
   height: 100%;
-  width: 3px;
-  background: #8b7355;
+  width: 4px;
+  background: linear-gradient(180deg, #8b7355 0%, #5c5545 100%);
   transform: scaleY(0);
   transition: transform 0.3s ease;
 }
@@ -246,23 +255,9 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(92, 85, 69, 0.4);
+  backdrop-filter: blur(6px);
   z-index: 999;
-  backdrop-filter: blur(2px);
-}
-
-/* Adaptação para diferentes backgrounds */
-.menu-button.dark-mode {
-  background: rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.3);
-}
-
-.menu-button.dark-mode span {
-  background: #333;
-}
-
-.menu-button.dark-mode:hover {
-  background: rgba(0, 0, 0, 0.2);
 }
 
 /* Responsivo */
@@ -287,9 +282,13 @@ export default {
     padding: 20px 25px;
   }
 
+  .menu-header h3 {
+    font-size: 1.6rem;
+  }
+
   .menu-link {
     padding: 18px 25px;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .menu-link:hover {
@@ -314,12 +313,12 @@ export default {
   }
 
   .menu-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .menu-link {
     padding: 15px 20px;
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .menu-link:hover {

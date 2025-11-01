@@ -20,6 +20,23 @@ export default {
 </script>
 
 <style>
+/* Importar a fonte Aileron Italic */
+@font-face {
+  font-family: 'Aileron';
+  src: url('/fonts/aileron.italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/playfair-display.italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
 #app {
   font-family: 'Object Sans', sans-serif;
   -webkit-font-smoothing: antialiased;

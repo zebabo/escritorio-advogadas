@@ -1,5 +1,8 @@
 <template>
   <div class="articles-page">
+    <!-- Botão Home -->
+    <HomeButton />
+
     <!-- Header da página -->
     <section class="articles-header">
       <div class="container">
@@ -22,13 +25,15 @@
 
 <script>
 import ArticlesCarousel from '../components/ArticlesCarousel.vue'
-import Footer from '../components/shared/AppFooter.vue'
+import AppFooter from '../components/shared/AppFooter.vue'
+import HomeButton from '../components/shared/HomeButton.vue'
 
 export default {
   name: 'ArticlesView',
   components: {
     ArticlesCarousel,
-    AppFooter: Footer,
+    AppFooter,
+    HomeButton,
   },
   data() {
     return {
@@ -50,60 +55,12 @@ export default {
           title: 'Contratos de Trabalho: Direitos dos Trabalhadores em 2024',
           excerpt:
             'As relações laborais estão em constante evolução. Com as alterações legislativas recentes, é crucial que trabalhadores e empregadores conheçam os seus direitos e deveres. Analisamos as principais mudanças no Código do Trabalho e o seu impacto nas relações laborais, incluindo questões como teletrabalho, férias e rescisão de contratos.',
-          author: 'Sara Costa',
+          author: 'Sara S. Costa',
           authorImage: '/images/sara.png',
           date: '2024-11-08',
           category: 'Direito do Trabalho',
           tags: ['Contratos', 'Direito Laboral', 'Legislação'],
           readTime: 6,
-        },
-        {
-          id: 3,
-          title: 'Acidentes de Viação: Como Proceder e Reclamar Indemnizações',
-          excerpt:
-            'Sofreu um acidente de viação? Saber como proceder nos primeiros momentos é fundamental para proteger os seus direitos. Este guia prático explica todos os passos a seguir após um acidente, desde o preenchimento da declaração amigável até ao processo de reclamação de indemnizações junto das seguradoras.',
-          author: 'Carina Babo',
-          authorImage: '/images/carina.png',
-          date: '2024-10-28',
-          category: 'Direito Civil',
-          tags: ['Acidentes', 'Seguros', 'Indemnizações'],
-          readTime: 10,
-        },
-        {
-          id: 4,
-          title: 'Crimes Informáticos: Proteção Legal no Mundo Digital',
-          excerpt:
-            'A era digital trouxe novos desafios jurídicos. Desde o cyberbullying até à violação de dados pessoais, os crimes informáticos estão em crescimento. Explicamos como a lei portuguesa protege os cidadãos no espaço digital e que medidas pode tomar se for vítima de um crime informático.',
-          author: 'Sara Costa',
-          authorImage: '/images/sara.png',
-          date: '2024-10-20',
-          category: 'Direito Penal',
-          tags: ['Crimes Informáticos', 'Proteção de Dados', 'Cybersegurança'],
-          readTime: 7,
-        },
-        {
-          id: 5,
-          title: 'Testamentos e Heranças: Planeamento Sucessório',
-          excerpt:
-            'O planeamento sucessório é uma questão delicada mas essencial. Como garantir que os seus bens são distribuídos conforme a sua vontade? Abordamos os diferentes tipos de testamento, a legítima, as doações em vida e outras estratégias para um planeamento sucessório eficaz, sempre respeitando a lei portuguesa.',
-          author: 'Carina Babo',
-          authorImage: '/images/carina.png',
-          date: '2024-10-12',
-          category: 'Direito de Família',
-          tags: ['Testamentos', 'Heranças', 'Sucessões'],
-          readTime: 9,
-        },
-        {
-          id: 6,
-          title: 'Direito do Consumidor: Como Defender os Seus Direitos',
-          excerpt:
-            'Comprou um produto defeituoso? Teve problemas com um serviço contratado? O direito do consumidor protege-o em várias situações. Conheça os seus direitos enquanto consumidor, desde o direito de livre resolução até à garantia de bens de consumo, e saiba como reclamar eficazmente.',
-          author: 'Sara Costa',
-          authorImage: '/images/sara.png',
-          date: '2024-10-05',
-          category: 'Direito do Consumidor',
-          tags: ['Consumidor', 'Garantias', 'Reclamações'],
-          readTime: 5,
         },
       ],
     }
@@ -121,7 +78,7 @@ export default {
 
 /* Header da página */
 .articles-header {
-  background: #f1eee9;
+  background: #ffffff;
   padding: 120px 0 60px 0;
   border-bottom: 2px solid #8b7355;
 }
@@ -153,7 +110,8 @@ export default {
   font-weight: 300;
   line-height: 1.4;
   margin: 0 0 40px 0;
-  font-family: 'Object Sans', sans-serif;
+  font-family: 'Aileron', sans-serif;
+  font-style: italic;
 }
 
 .header-divider {

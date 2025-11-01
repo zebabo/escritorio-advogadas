@@ -40,7 +40,7 @@ export default {
   align-items: center;
   justify-content: center;
   position: relative;
-  background: #45212b;
+  background: #5c5545;
   color: white;
   overflow: hidden;
 }

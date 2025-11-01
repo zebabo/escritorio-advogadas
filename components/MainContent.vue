@@ -85,7 +85,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #45212b;
+  background: #5c5545;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   z-index: 1;
 }
@@ -128,7 +128,9 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sobre-nos-btn:hover {
@@ -151,7 +153,7 @@ export default {
 .service-btn,
 .contact-btn {
   background: transparent;
-  color: #e4e2dd;
+  color: #5c5545;
   border: 2px solid #6b5b4d;
   padding: 1rem 2rem;
   font-size: 0.9rem;
@@ -160,12 +162,14 @@ export default {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .service-btn:hover,
 .contact-btn:hover {
-  background: #e4e2dd;
+  background: #5c5545;
   color: #ffffff;
   text-decoration: none;
 }
@@ -288,7 +292,12 @@ export default {
 @media (max-width: 768px) {
   /* Mudar o fundo para a cor do triângulo */
   .main-content {
-    background: #45212b;
+    background: #5c5545;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
   }
 
   /* Esconder o triângulo */
@@ -299,10 +308,20 @@ export default {
   /* Ajustar a cor do texto superior para branco */
   .top-text {
     color: #f5f1eb;
-    top: 4rem;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
     font-size: 1rem;
     padding: 0 2rem;
     max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  .triangle-section {
+    position: relative;
+    height: auto;
+    margin-bottom: 3rem;
   }
 
   /* Ajustar as cores dos botões inferiores para branco */
@@ -315,7 +334,7 @@ export default {
   .service-btn:hover,
   .contact-btn:hover {
     background: #f5f1eb;
-    color: #582936;
+    color: #5c5545;
   }
 
   .home-icon {
@@ -325,7 +344,8 @@ export default {
   }
 
   .triangle-content {
-    margin-top: 2rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
   }
 
   .title-line1 {
@@ -337,20 +357,26 @@ export default {
   }
 
   .sobre-nos-btn {
-    padding: 0.8rem 2rem;
+    width: 200px;
+    padding: 0.8rem 1.5rem;
     font-size: 0.8rem;
   }
 
   .sobre-nos-btn:hover {
     background: #f5f1eb;
-    color: #582936;
+    color: #5c5545;
+  }
+
+  .main-title {
+    margin-bottom: 3rem;
   }
 
   .bottom-buttons {
-    bottom: 2rem;
-    padding: 0 2rem;
+    position: relative;
+    bottom: 4rem;
+    padding: 0;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     align-items: center;
   }
 
@@ -365,9 +391,9 @@ export default {
 /* Mobile grande (600px - 768px) */
 @media (max-width: 600px) {
   .top-text {
-    top: 3.5rem;
     font-size: 0.95rem;
     padding: 0 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .title-line1 {
@@ -379,20 +405,25 @@ export default {
   }
 
   .triangle-content {
-    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .main-title {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .bottom-buttons {
+    bottom: 4rem;
+    gap: 1.5rem;
   }
 }
 
 /* Mobile médio (480px - 600px) */
 @media (max-width: 480px) {
   .top-text {
-    top: 3rem;
     font-size: 0.9rem;
     padding: 0 1rem;
+    margin-bottom: 2rem;
   }
 
   .title-line1 {
@@ -404,30 +435,39 @@ export default {
     font-size: 2.5rem;
   }
 
+  .triangle-content {
+    margin-bottom: 2rem;
+  }
+
+  .main-title {
+    margin-bottom: 2rem;
+  }
+
   .sobre-nos-btn {
+    margin-top: 4rem;
     padding: 0.7rem 1.8rem;
     font-size: 0.75rem;
   }
 
   .service-btn,
   .contact-btn {
-    width: 180px;
+    width: 200px;
     padding: 0.7rem 1.3rem;
     font-size: 0.75rem;
   }
 
   .bottom-buttons {
-    bottom: 1.5rem;
-    padding: 0 1.5rem;
+    bottom: 3.2rem;
+    gap: 1.5rem;
   }
 }
 
 /* Mobile pequeno (360px - 480px) */
 @media (max-width: 360px) {
   .top-text {
-    top: 2.5rem;
     font-size: 0.85rem;
     padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .title-line1 {
@@ -436,6 +476,14 @@ export default {
 
   .title-line2 {
     font-size: 2.2rem;
+  }
+
+  .triangle-content {
+    margin-bottom: 1.5rem;
+  }
+
+  .main-title {
+    margin-bottom: 1.5rem;
   }
 
   .sobre-nos-btn {
@@ -451,9 +499,7 @@ export default {
   }
 
   .bottom-buttons {
-    bottom: 1rem;
-    padding: 0 1rem;
-    gap: 0.8rem;
+    gap: 1.2rem;
   }
 
   .home-icon {
@@ -464,13 +510,17 @@ export default {
 
 /* Landscape orientation para mobile */
 @media (max-height: 500px) and (orientation: landscape) {
+  .main-content {
+    padding: 1rem;
+  }
+
   .top-text {
-    top: 1rem;
     font-size: 0.8rem;
+    margin-bottom: 1.5rem;
   }
 
   .triangle-content {
-    margin-top: 0;
+    margin-bottom: 1.5rem;
   }
 
   .title-line1 {
@@ -482,7 +532,7 @@ export default {
   }
 
   .main-title {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .sobre-nos-btn {
@@ -491,9 +541,7 @@ export default {
   }
 
   .bottom-buttons {
-    bottom: 0.5rem;
     flex-direction: row;
-    justify-content: center;
     gap: 2rem;
   }
 

@@ -1,4 +1,6 @@
 <template>
+
+  <HomeButton />
   <div class="terms-page">
     <!-- Componente com o conteúdo dos termos -->
     <Terms />
@@ -11,12 +13,14 @@
 <script>
 import TermsContent from '../components/Terms.vue'
 import AppFooter from '../components/shared/AppFooter.vue'
+import HomeButton from '../components/shared/HomeButton.vue';
 
 export default {
   name: 'TermsView',
   components: {
     Terms: TermsContent,
     AppFooter,
+    HomeButton,
   },
 }
 </script>
@@ -63,7 +67,8 @@ export default {
   font-weight: 300;
   line-height: 1.4;
   margin: 0 0 40px 0;
-  font-family: 'Object Sans', sans-serif;
+  font-family: 'Aileron', sans-serif;
+  font-style: italic;
 }
 
 .header-divider {

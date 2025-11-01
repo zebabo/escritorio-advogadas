@@ -1,4 +1,6 @@
 <template>
+<HomeButton/>
+
   <div class="privacy-page">
     <!-- Componente com o conteúdo da política -->
     <Political />
@@ -10,12 +12,14 @@
 <script>
 import PrivacyPolicyContent from '../components/Political.vue'
 import AppFooter from '../components/shared/AppFooter.vue'
+import HomeButton from '../components/shared/HomeButton.vue';
 
 export default {
   name: 'PrivacyPolicyView',
   components: {
     Political: PrivacyPolicyContent,
     AppFooter,
+    HomeButton,
   },
 }
 </script>
@@ -24,13 +28,13 @@ export default {
 .privacy-page {
   width: 100%;
   min-height: 100vh;
-  background: #f1eee9;
+  background: #ffffff;
   overflow-x: hidden;
 }
 
 /* Header da página */
 .privacy-header {
-  background: #f1eee9;
+  background: #ffffff;
   padding: 120px 0 60px 0;
   border-bottom: 2px solid #8b7355;
 }
@@ -62,7 +66,8 @@ export default {
   font-weight: 300;
   line-height: 1.4;
   margin: 0 0 40px 0;
-  font-family: 'Object Sans', sans-serif;
+  font-family: 'Aileron', sans-serif;
+  font-style: italic;
 }
 
 .header-divider {
