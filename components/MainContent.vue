@@ -5,7 +5,7 @@
 
     <!-- Top text -->
     <div class="top-text">
-      Tem dúvidas, precisa de esclarecimentos ou pretende marcar uma consulta com uma advogada?
+      Somos <span class="highlight">profissionais</span> que fazem da <span class="highlight">justiça</span> o seu <span class="highlight">propósito diário</span>.
     </div>
 
     <!-- Main triangle section -->
@@ -61,7 +61,9 @@ export default {
   transform: translateX(-50%);
   max-width: 1800px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
+   font-family: 'Raleway';
+   font-style: italic;
   color: white;
   line-height: 1.6;
   z-index: 20;
@@ -99,21 +101,26 @@ export default {
 
 .main-title {
   color: #ffffff;
-  font-family: 'Playfair Display', serif;
+   font-family: 'Playfair Display', serif;
+font-style: italic;
   font-weight: 300;
   letter-spacing: 0.2em;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
+}
+
+.highlight {
+  font-weight: 700;
 }
 
 .title-line1 {
   display: block;
-  font-size: 5rem;
-  margin-bottom: 0.5rem;
+  font-size: 8rem;
+  margin-bottom: -30px;
 }
 
 .title-line2 {
   display: block;
-  font-size: 5rem;
+  font-size: 8rem;
   font-weight: 400;
 }
 
@@ -184,7 +191,7 @@ export default {
 
   .top-text {
     max-width: 1600px;
-    font-size: 1.15rem;
+    font-size: 2.15rem;
   }
 }
 
@@ -195,16 +202,20 @@ export default {
   }
 
   .title-line1 {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
   }
 
   .title-line2 {
     font-size: 4.8rem;
   }
 
+  .main-title {
+    margin-bottom: 8rem;
+  }
+
   .top-text {
     max-width: 1400px;
-    font-size: 1.1rem;
+    font-size: 2.1rem;
   }
 }
 
@@ -215,16 +226,20 @@ export default {
   }
 
   .title-line1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 
   .title-line2 {
     font-size: 4.5rem;
   }
 
+  .main-title {
+    margin-bottom: 8rem;
+  }
+
   .top-text {
     max-width: 1200px;
-    font-size: 1rem;
+    font-size: 2rem;
     top: 8rem;
   }
 
@@ -242,27 +257,27 @@ export default {
   }
 
   .title-line1 {
-    font-size: 3.2rem;
+    font-size: 4rem;
   }
 
   .title-line2 {
     font-size: 4rem;
   }
 
+.main-title {
+    margin-bottom: 8rem;
+  }
+
   .top-text {
     max-width: 1000px;
     top: 6rem;
-    font-size: 0.95rem;
+    font-size: 2rem;
   }
 
   .service-btn,
   .contact-btn {
     padding: 0.9rem 1.8rem;
     font-size: 0.85rem;
-  }
-
-  .main-title {
-    margin-bottom: 2.5rem;
   }
 }
 
@@ -273,8 +288,12 @@ export default {
     bottom: 6rem;
   }
 
+.main-title {
+    margin-bottom: 8rem;
+  }
+
   .title-line1 {
-    font-size: 3rem;
+    font-size: 3.8rem;
   }
 
   .title-line2 {
@@ -284,7 +303,7 @@ export default {
   .top-text {
     max-width: 800px;
     top: 5rem;
-    font-size: 0.9rem;
+    font-size: 1.9rem;
   }
 }
 
@@ -312,7 +331,7 @@ export default {
     top: auto;
     left: auto;
     transform: none;
-    font-size: 1rem;
+    font-size: 1.8rem;
     padding: 0 2rem;
     max-width: 600px;
     margin-bottom: 3rem;
@@ -349,7 +368,8 @@ export default {
   }
 
   .title-line1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: -10px;
   }
 
   .title-line2 {
@@ -360,6 +380,7 @@ export default {
     width: 200px;
     padding: 0.8rem 1.5rem;
     font-size: 0.8rem;
+    margin-top: 4rem;
   }
 
   .sobre-nos-btn:hover {
@@ -368,7 +389,7 @@ export default {
   }
 
   .main-title {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .bottom-buttons {
@@ -427,8 +448,8 @@ export default {
   }
 
   .title-line1 {
-    font-size: 2rem;
-    margin-bottom: 0.3rem;
+    font-size: 2.5rem;
+    margin-bottom: -10px;
   }
 
   .title-line2 {
@@ -440,7 +461,7 @@ export default {
   }
 
   .main-title {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   .sobre-nos-btn {
@@ -471,7 +492,7 @@ export default {
   }
 
   .title-line1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
   }
 
   .title-line2 {
@@ -528,7 +549,7 @@ export default {
   }
 
   .title-line2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .main-title {

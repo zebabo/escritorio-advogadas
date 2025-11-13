@@ -68,6 +68,7 @@ export default {
   font-weight: 100;
   color: #5c5545;
   margin: 0 0 30px 0;
+  font-family: 'Noto Serif Display', serif;
 }
 
 .page-subtitle {
@@ -75,6 +76,7 @@ export default {
   color: #5c5545;
   font-weight: 300;
   margin: 0 0 40px 0;
+  font-family: 'Aileron', sans-serif;
 }
 
 .header-divider {

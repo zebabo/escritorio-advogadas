@@ -137,7 +137,7 @@ export default {
   font-weight: 100;
   color: #5c5545;
   line-height: 1.1;
-  margin: 0 0 30px 0;
+  margin: 0 0 60px 0;
   font-family: 'Noto Serif Display', serif;
 }
 

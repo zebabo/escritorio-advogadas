@@ -18,13 +18,14 @@ export default {
 <style scoped>
 .intro-text {
   font-size: 1.8rem;
-  color: #5c5545;
-  line-height: 1.6;
+  color: #ffffff;
   margin-bottom: 30px;
   font-style: italic;
   padding: 20px;
-  background: #f8f6f1;
+  background: #5c5545;
+  opacity: 0.9;
   border-left: 4px solid #8b7355;
+  font-family: 'Noto Serif Display', serif;
 }
 
 @media (max-width: 768px) {

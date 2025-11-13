@@ -219,7 +219,7 @@ export default {
   line-height: 1.1;
   margin: 0 0 20px 0;
   font-family: 'Playfair Display', serif;
-font-style: italic;
+  font-style: italic;
 }
 
 .name-divider {
@@ -234,7 +234,7 @@ font-style: italic;
   font-weight: 300;
   line-height: 1.5;
   margin: 40px 0;
- font-family: 'Aileron', sans-serif;
+  font-family: 'Aileron', sans-serif;
   font-style: italic;
 }
 
@@ -270,19 +270,26 @@ font-style: italic;
   font-weight: 300;
 }
 
-/* Informação extra */
+/* --- ESTILO UNIFICADO PARA EXTRA INFO (mobile + desktop) --- */
+.extra-info,
+.modal-body {
+  font-size: 1.6rem;
+  color: #5c5545;
+  line-height: 1.8;
+  font-family: 'Aileron', sans-serif;
+  font-style: italic;
+}
+
+.extra-info strong,
+.modal-body strong {
+  color: #8b7355;
+  font-weight: 500;
+}
+
 .extra-info {
   margin-top: 30px;
   padding-top: 30px;
   border-top: 1px solid #8b7355;
-  font-size: 1.6rem;
-  color: #5c5545;
-  line-height: 1.8;
-}
-
-.extra-info strong {
-  color: #8b7355;
-  font-weight: 500;
 }
 
 /* Animação de transição inline (mobile) */
@@ -318,7 +325,7 @@ font-style: italic;
 }
 
 .modal-content {
-  background: #f1eee9;
+  background: #ffffff;
   border: 2px solid #5c5545;
   max-width: 700px;
   width: 100%;
@@ -374,27 +381,13 @@ font-style: italic;
   line-height: 1.1;
   margin: 0 0 20px 0;
   font-family: 'Playfair Display', serif;
-font-style: italic;
-
+  font-style: italic;
 }
 
 .modal-divider {
   width: 100px;
   height: 3px;
   background: #5c5545;
-}
-
-.modal-body {
-  font-size: 1.8rem;
-  color: #5c5545;
-  line-height: 1.5;
-font-family: 'Aileron', sans-serif;
-  font-style: italic;
-}
-
-.modal-body strong {
-  color: #8b7355;
-  font-weight: 500;
 }
 
 /* Animação do modal */
@@ -422,13 +415,14 @@ font-family: 'Aileron', sans-serif;
 }
 
 /* Responsividade */
+
+
+
 @media (max-width: 1200px) {
   .image-container {
     width: 400px;
-    height: 520px;
+    height: 620px;
   }
-
-
 
   .content-box {
     padding: 50px 40px;
@@ -441,16 +435,14 @@ font-family: 'Aileron', sans-serif;
   .profile-description {
     font-size: 2rem;
   }
-
-
 }
 
 @media (max-width: 1024px) {
   .image-container {
     width: 350px;
     height: 470px;
+    margin-top: 180px;
   }
-
 
   .profile-name {
     font-size: 3.5rem;
@@ -458,10 +450,6 @@ font-family: 'Aileron', sans-serif;
 
   .profile-description {
     font-size: 1.8rem;
-  }
-
-  .extra-info {
-    font-size: 1.4rem;
   }
 }
 
@@ -492,7 +480,7 @@ font-family: 'Aileron', sans-serif;
 
   .image-container {
     width: 300px;
-    height: 380px;
+    height: 480px;
   }
 
   .content-box {
@@ -511,8 +499,9 @@ font-family: 'Aileron', sans-serif;
     font-size: 1.2rem;
   }
 
+  /* Fonte menor da extra info em mobile */
   .extra-info {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -523,7 +512,7 @@ font-family: 'Aileron', sans-serif;
 
   .image-container {
     width: 250px;
-    height: 320px;
+    height: 420px;
   }
 
   .content-box {
@@ -555,9 +544,7 @@ font-family: 'Aileron', sans-serif;
   }
 
   .extra-info {
-    font-size: 1.2rem;
-    margin-top: 20px;
-    padding-top: 20px;
+    font-size: 1.4rem;
   }
 }
 </style>

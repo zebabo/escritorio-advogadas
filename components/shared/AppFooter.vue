@@ -66,13 +66,10 @@
       <div class="footer-section">
         <h3>Siga-nos</h3>
         <div class="social-links">
-          <a href="#" class="social-link" aria-label="LinkedIn">
-            <img src="/images/icons/linkedin.png" alt="LinkedIn" class="social-icon-img" />
-          </a>
-          <a href="#" class="social-link" aria-label="Facebook">
+          <a href="https://www.facebook.com/SSCB.Advogadas" target="_blank" class="social-link" aria-label="Facebook">
             <img src="/images/icons/facebook.png" alt="Facebook" class="social-icon-img" />
           </a>
-          <a href="#" class="social-link" aria-label="Instagram">
+          <a href="https://www.instagram.com/sscb_advogadas/" target="_blank" class="social-link" aria-label="Instagram">
             <img src="/images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
           </a>
         </div>
@@ -118,13 +115,16 @@ export default {
 
 .footer-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Isto já está ok */
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
   margin-bottom: 40px;
+  justify-content: center;
+  justify-items: center;
 }
+
 
 .footer-section h3 {
   font-size: 1.8rem;

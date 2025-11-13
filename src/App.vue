@@ -36,6 +36,12 @@ export default {
   font-style: italic;
 }
 
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/raleway.regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
 
 #app {
   font-family: 'Object Sans', sans-serif;

@@ -60,16 +60,14 @@
         <div class="modal-body">
           <p class="modal-intro">{{ selectedArticle.excerpt }}</p>
 
-          <p class="modal-text">
-            Este é um artigo de exemplo. Em produção, aqui estaria o conteúdo completo do artigo
-            com todos os detalhes, análises jurídicas, casos práticos e recomendações.
-          </p>
+          <div class="modal-full-content" v-html="selectedArticle.fullContent"></div>
 
-          <p class="modal-text">
-            O nosso escritório dedica-se a fornecer informação jurídica clara e acessível a todos
-            os nossos clientes e visitantes. Se tem dúvidas específicas sobre este tema, não hesite
-            em contactar-nos.
-          </p>
+          <div class="modal-contact">
+            <p><strong>Rua Ramalho Ortigão, 57</strong><br>
+            4400-265, Vila Nova de Gaia</p>
+            <p>T. +351 918844926 | sara.santos.costa@sscb.pt<br>
+            T. +351 910035536 | carina.babo@sscb.pt</p>
+          </div>
         </div>
 
         <div class="modal-footer">
@@ -138,8 +136,9 @@ export default {
 /* Grid de artigos - 3 por linha */
 .articles-wrapper {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* tamanho fixo como se houvesse 3 artigos */
   gap: 40px;
+  justify-content: center; /* centraliza os itens na linha se houver menos que 3 */
 }
 
 .article-item {
@@ -149,7 +148,7 @@ export default {
 
 .article-card {
   background: #ffffff;
-  border: 2px solid #8b7355;
+  border: 2px solid #5c5545;
   padding: 30px;
   height: 100%;
   width: 100%;
@@ -185,7 +184,7 @@ export default {
   height: 45px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid #8b7355;
+  border: 2px solid #5c5545;
   flex-shrink: 0;
 }
 
@@ -193,6 +192,7 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .author-details {
@@ -209,7 +209,7 @@ export default {
 
 .article-date {
   font-size: 0.95rem;
-  color: #8b7355;
+  color: #5c5545;
   margin: 0;
   font-family: 'Object Sans', sans-serif;
 }
@@ -225,7 +225,7 @@ export default {
 }
 
 .article-title {
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.3;
@@ -297,12 +297,12 @@ export default {
 
 .modal-content {
   background: #fff;
-  border: 2px solid #8b7355;
-  max-width: 900px;
+  border: 2px solid #5c5545;
+  max-width: 1000px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 60px;
+  padding: 100px;
   position: relative;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   will-change: transform;
@@ -333,7 +333,7 @@ export default {
   align-items: flex-start;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #8b7355;
+  border-bottom: 2px solid #5c5545;
 }
 
 .modal-author-info {
@@ -347,13 +347,14 @@ export default {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid #8b7355;
+  border: 2px solid #5c5545;
 }
 
 .modal-author-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .modal-author-name {
@@ -366,13 +367,13 @@ export default {
 
 .modal-article-date {
   font-size: 1.1rem;
-  color: #8b7355;
+  color: #5c5545;
   margin: 0;
   font-family: 'Object Sans', sans-serif;
 }
 
 .modal-category {
-  background: #8b7355;
+  background: #5c5545;
   color: #f1eee9;
   padding: 6px 12px;
   font-size: 1.1rem;
@@ -383,10 +384,10 @@ export default {
 }
 
 .modal-title {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   color: #5c5545;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.3;
   margin: 0 0 30px 0;
   font-family: 'Noto Serif Display', serif;
 }
@@ -396,24 +397,58 @@ export default {
 }
 
 .modal-intro {
-  font-size: 1.8rem;
-  color: #5c5545;
-  line-height: 1.6;
+  font-size: 1.6rem;
+  color: #ffffff;
   margin-bottom: 30px;
-  font-family: 'Object Sans', sans-serif;
+  font-family: 'Aileron', sans-serif;
   font-style: italic;
   padding: 20px;
-  background: #f8f6f1;
+  background: #5c5545;
   border-left: 4px solid #8b7355;
+  line-height: 1.6;
 }
 
-.modal-text {
-  font-size: 1.6rem;
+.modal-full-content {
+  font-size: 1.5rem;
   color: #5c5545;
   line-height: 1.8;
+  font-family: 'Aileron', sans-serif;
+  text-align: left;
+}
+
+.modal-full-content h3 {
+  font-size: 2rem;
+  color: #5c5545;
+  font-weight: 500;
+  margin: 30px 0 20px 0;
+  font-family: 'Noto Serif Display', serif;
+  line-height: 1.3;
+}
+
+.modal-full-content h4 {
+  font-size: 1.8rem;
+  color: #8b7355;
+  font-weight: 500;
+  margin: 25px 0 15px 0;
+  font-family: 'Noto Serif Display', serif;
+}
+
+.modal-full-content p {
   margin-bottom: 20px;
-  font-family: 'Object Sans', sans-serif;
-  text-align: justify;
+}
+
+.modal-contact {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #8b7355;
+  font-size: 1.4rem;
+  color: #5c5545;
+  font-family: 'Aileron', sans-serif;
+  text-align: center;
+}
+
+.modal-contact p {
+  margin: 10px 0;
 }
 
 .modal-footer {
@@ -442,10 +477,37 @@ export default {
 }
 
 /* Responsividade */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .articles-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .articles-grid {
+    padding: 60px 0;
+  }
+
+  .article-card {
+    padding: 25px;
+  }
+
+  .article-title {
+    font-size: 1.4rem;
+  }
+
+  .read-more-btn {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+
+  .modal-content {
+    padding: 40px;
+  }
+
+  .modal-title {
+    font-size: 2.8rem;
   }
 }
 
@@ -459,12 +521,12 @@ export default {
   }
 
   .article-title {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
   }
 
   .read-more-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 8px 18px;
+    font-size: 0.8rem;
   }
 
   .modal-content {
@@ -472,7 +534,7 @@ export default {
   }
 
   .modal-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
 }
 
@@ -509,7 +571,7 @@ export default {
   }
 
   .article-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
   .tag {
@@ -518,8 +580,8 @@ export default {
   }
 
   .read-more-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
+    padding: 8px 18px;
+    font-size: 0.8rem;
   }
 
   .modal-content {
@@ -527,7 +589,7 @@ export default {
   }
 
   .modal-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
 
   .modal-header {
@@ -537,6 +599,18 @@ export default {
 
   .modal-footer {
     justify-content: center;
+  }
+
+  .modal-full-content {
+    font-size: 1.4rem;
+  }
+
+  .modal-full-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .modal-full-content h4 {
+    font-size: 1.6rem;
   }
 }
 
@@ -563,7 +637,7 @@ export default {
   }
 
   .article-title {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
 
   .tag {
@@ -572,8 +646,8 @@ export default {
   }
 
   .read-more-btn {
-    padding: 10px 18px;
-    font-size: 0.95rem;
+    padding: 8px 16px;
+    font-size: 0.65rem;
   }
 
   .modal-content {
@@ -581,7 +655,7 @@ export default {
   }
 
   .modal-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .close-modal {
@@ -590,9 +664,24 @@ export default {
     right: 20px;
   }
 
-  .modal-intro,
-  .modal-text {
+  .modal-intro {
     font-size: 1.4rem;
+  }
+
+  .modal-full-content {
+    font-size: 1.3rem;
+  }
+
+  .modal-full-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .modal-full-content h4 {
+    font-size: 1.4rem;
+  }
+
+  .modal-contact {
+    font-size: 1.2rem;
   }
 
   .modal-tag {

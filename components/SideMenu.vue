@@ -153,7 +153,7 @@ export default {
   left: -350px;
   width: 350px;
   height: 100vh;
-  background: #f1eee9;
+  background: #ffffff;
   z-index: 1000;
   transition: left 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   padding: 0;
