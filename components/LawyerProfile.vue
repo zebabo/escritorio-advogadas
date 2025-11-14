@@ -128,7 +128,7 @@ export default {
 .lawyer-profile {
   width: 100%;
   padding: 60px 20px;
-  background: #ffffff;
+  background: #f1eee9;
 }
 
 .profile-container {
@@ -139,7 +139,7 @@ export default {
   gap: 0;
   position: relative;
   border: 2px solid #5c5545;
-  background: #ffffff;
+  background: #f1eee9;
 }
 
 /* Layout normal - imagem à direita */
@@ -189,7 +189,7 @@ export default {
 
 /* Caixa de conteúdo */
 .content-box {
-  background: #ffffff;
+  background: #f1eee9;
   border: none;
   padding: 60px 80px;
   height: 100%;

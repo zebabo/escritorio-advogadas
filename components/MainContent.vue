@@ -61,7 +61,7 @@ export default {
   transform: translateX(-50%);
   max-width: 1800px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Raleway';
   font-style: italic;
   color: white;
@@ -115,7 +115,7 @@ export default {
 .title-line1,
 .title-line2 {
   display: block;
-  font-size: 8rem;
+  font-size: 7rem;
 }
 
 .title-line1 {

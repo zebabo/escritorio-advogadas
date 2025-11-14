@@ -109,13 +109,13 @@ export default {
 .team-page {
   width: 100%;
   min-height: 100vh;
-  background: #ffffff;
+  background: #f1eee9;
   overflow-x: hidden;
 }
 
 /* Header da página */
 .team-header {
-  background: #ffffff;
+  background: #f1eee9;
   padding: 120px 0 60px 0;
   border-bottom: 2px solid #8b7355;
 }

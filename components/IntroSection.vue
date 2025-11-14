@@ -98,6 +98,17 @@ export default {
   }
 }
 
+@media (min-width: 769px) and (max-height: 600px) {
+  .logo {
+    width: 430px;
+  }
+}
+  @media (min-width: 769px) and (max-height: 800px) {
+  .logo {
+    width: 600px;
+  }
+}
+
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
