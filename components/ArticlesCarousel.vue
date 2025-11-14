@@ -122,7 +122,7 @@ export default {
 
 <style scoped>
 .articles-grid {
-  background: #ffffff;
+  background: #f1eee9;
   padding: 80px 0;
   position: relative;
 }

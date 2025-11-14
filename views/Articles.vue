@@ -54,7 +54,7 @@ export default {
 
 /* Header da página */
 .articles-header {
-  background: #ffffff;
+  background: #f1eee9;
   padding: 120px 0 60px 0;
   border-bottom: 2px solid #8b7355;
 }

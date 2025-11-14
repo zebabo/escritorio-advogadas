@@ -62,12 +62,16 @@ export default {
   max-width: 1800px;
   text-align: center;
   font-size: 2rem;
-   font-family: 'Raleway';
-   font-style: italic;
+  font-family: 'Raleway';
+  font-style: italic;
   color: white;
   line-height: 1.6;
   z-index: 20;
   padding: 0 1rem;
+}
+
+.highlight {
+  font-weight: 700;
 }
 
 .triangle-section {
@@ -96,38 +100,37 @@ export default {
   position: relative;
   z-index: 10;
   text-align: center;
-  margin-top: 0rem;
+  margin-top: 0;
 }
 
 .main-title {
   color: #ffffff;
-   font-family: 'Playfair Display', serif;
-font-style: italic;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
   font-weight: 300;
   letter-spacing: 0.2em;
   margin-bottom: 6rem;
 }
 
-.highlight {
-  font-weight: 700;
+.title-line1,
+.title-line2 {
+  display: block;
+  font-size: 8rem;
 }
 
 .title-line1 {
-  display: block;
-  font-size: 8rem;
   margin-bottom: -30px;
 }
 
 .title-line2 {
-  display: block;
-  font-size: 8rem;
   font-weight: 400;
 }
 
-.sobre-nos-btn {
+.sobre-nos-btn,
+.service-btn,
+.contact-btn {
   background: transparent;
-  color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 2px solid;
   padding: 1rem 2.5rem;
   font-size: 0.9rem;
   font-weight: 500;
@@ -140,10 +143,27 @@ font-style: italic;
   justify-content: center;
 }
 
+.sobre-nos-btn {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
 .sobre-nos-btn:hover {
   background: #f5f1eb;
   color: #6b5b4d;
-  text-decoration: none;
+}
+
+.service-btn,
+.contact-btn {
+  color: #5c5545;
+  border-color: #6b5b4d;
+  padding: 1rem 2rem;
+}
+
+.service-btn:hover,
+.contact-btn:hover {
+  background: #5c5545;
+  color: #ffffff;
 }
 
 .bottom-buttons {
@@ -157,38 +177,11 @@ font-style: italic;
   z-index: 20;
 }
 
-.service-btn,
-.contact-btn {
-  background: transparent;
-  color: #5c5545;
-  border: 2px solid #6b5b4d;
-  padding: 1rem 2rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.service-btn:hover,
-.contact-btn:hover {
-  background: #5c5545;
-  color: #ffffff;
-  text-decoration: none;
-}
-
-/* Breakpoints detalhados para responsividade */
-
 /* Desktop grande (1400px+) */
 @media (max-width: 1600px) {
   .bottom-buttons {
     padding: 0 12rem;
   }
-
   .top-text {
     max-width: 1600px;
     font-size: 2.15rem;
@@ -200,19 +193,13 @@ font-style: italic;
   .bottom-buttons {
     padding: 0 10rem;
   }
-
-  .title-line1 {
-    font-size: 4.8rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 4.8rem;
   }
-
   .main-title {
     margin-bottom: 8rem;
   }
-
   .top-text {
     max-width: 1400px;
     font-size: 2.1rem;
@@ -224,25 +211,18 @@ font-style: italic;
   .bottom-buttons {
     padding: 0 8rem;
   }
-
-  .title-line1 {
-    font-size: 4.5rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 4.5rem;
   }
-
   .main-title {
     margin-bottom: 8rem;
   }
-
   .top-text {
     max-width: 1200px;
     font-size: 2rem;
     top: 8rem;
   }
-
   .sobre-nos-btn {
     padding: 0.9rem 2.2rem;
     font-size: 0.85rem;
@@ -255,25 +235,18 @@ font-style: italic;
     padding: 0 6rem;
     bottom: 8rem;
   }
-
-  .title-line1 {
-    font-size: 4rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 4rem;
   }
-
-.main-title {
+  .main-title {
     margin-bottom: 8rem;
   }
-
   .top-text {
     max-width: 1000px;
     top: 6rem;
     font-size: 2rem;
   }
-
   .service-btn,
   .contact-btn {
     padding: 0.9rem 1.8rem;
@@ -287,19 +260,13 @@ font-style: italic;
     padding: 0 4rem;
     bottom: 6rem;
   }
-
-.main-title {
+  .main-title {
     margin-bottom: 8rem;
   }
-
-  .title-line1 {
-    font-size: 3.8rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 3.8rem;
   }
-
   .top-text {
     max-width: 800px;
     top: 5rem;
@@ -307,9 +274,161 @@ font-style: italic;
   }
 }
 
+/* MEDIA QUERIES PARA ALTURA - LAPTOPS/MACBOOKS */
+
+/* Altura 800px+ (laptops grandes) */
+@media (min-width: 769px) and (min-height: 800px) {
+  .top-text {
+    top: 8rem;
+  }
+}
+
+/* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
+@media (min-width: 769px) and (max-height: 800px) {
+  .top-text {
+    top: 2.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    max-width: 1200px;
+  }
+  .triangle-content {
+    margin-top: -3rem;
+  }
+  .title-line1 {
+    font-size: 3.5rem;
+    margin-bottom: -15px;
+  }
+  .title-line2 {
+    font-size: 3.5rem;
+  }
+  .main-title {
+    margin-bottom: 2.5rem;
+  }
+  .sobre-nos-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+  }
+  .bottom-buttons {
+    bottom: 4rem;
+    padding: 0 8rem;
+  }
+  .service-btn,
+  .contact-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Altura 650px - 700px (laptops compactos) */
+@media (min-width: 769px) and (max-height: 700px) {
+  .top-text {
+    top: 2.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    max-width: 1200px;
+  }
+  .triangle-content {
+    margin-top: -3rem;
+  }
+  .title-line1 {
+    font-size: 3.5rem;
+    margin-bottom: -15px;
+  }
+  .title-line2 {
+    font-size: 3.5rem;
+  }
+  .main-title {
+    margin-bottom: 2.5rem;
+  }
+  .sobre-nos-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+  }
+  .bottom-buttons {
+    bottom: 4rem;
+    padding: 0 8rem;
+  }
+  .service-btn,
+  .contact-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Altura 600px - 650px (laptops muito compactos) */
+@media (min-width: 769px) and (max-height: 650px) {
+   .top-text {
+    top: 2.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    max-width: 1200px;
+  }
+  .triangle-content {
+    margin-top: -3rem;
+  }
+  .title-line1 {
+    font-size: 3.5rem;
+    margin-bottom: -15px;
+  }
+  .title-line2 {
+    font-size: 3.5rem;
+  }
+  .main-title {
+    margin-bottom: 2.5rem;
+  }
+  .sobre-nos-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+  }
+  .bottom-buttons {
+    bottom: 4rem;
+    padding: 0 8rem;
+  }
+  .service-btn,
+  .contact-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Altura 550px - 600px (netbooks) */
+@media (min-width: 769px) and (max-height: 600px) {
+   .top-text {
+    top: 2.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    max-width: 1200px;
+  }
+  .triangle-content {
+    margin-top: -3rem;
+  }
+  .title-line1 {
+    font-size: 3.5rem;
+    margin-bottom: -15px;
+  }
+  .title-line2 {
+    font-size: 3.5rem;
+  }
+  .main-title {
+    margin-bottom: 2.5rem;
+  }
+  .sobre-nos-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+  }
+  .bottom-buttons {
+    bottom: 4rem;
+    padding: 0 8rem;
+  }
+  .service-btn,
+  .contact-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
 /* Transição para mobile (768px) */
 @media (max-width: 768px) {
-  /* Mudar o fundo para a cor do triângulo */
   .main-content {
     background: #5c5545;
     display: flex;
@@ -318,13 +437,9 @@ font-style: italic;
     justify-content: center;
     padding: 2rem;
   }
-
-  /* Esconder o triângulo */
   .triangle-bg {
     display: none;
   }
-
-  /* Ajustar a cor do texto superior para branco */
   .top-text {
     color: #f5f1eb;
     position: relative;
@@ -336,62 +451,50 @@ font-style: italic;
     max-width: 600px;
     margin-bottom: 3rem;
   }
-
   .triangle-section {
     position: relative;
     height: auto;
     margin-bottom: 3rem;
   }
-
-  /* Ajustar as cores dos botões inferiores para branco */
   .service-btn,
   .contact-btn {
     color: #f5f1eb;
     border-color: #f5f1eb;
   }
-
   .service-btn:hover,
   .contact-btn:hover {
     background: #f5f1eb;
     color: #5c5545;
   }
-
   .home-icon {
     top: 1rem;
     left: 1rem;
     color: #f5f1eb;
   }
-
   .triangle-content {
     margin-top: 0;
     margin-bottom: 3rem;
   }
-
-  .title-line1 {
-    font-size: 3rem;
-    margin-bottom: -10px;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 3rem;
   }
-
+  .title-line1 {
+    margin-bottom: -10px;
+  }
   .sobre-nos-btn {
     width: 200px;
     padding: 0.8rem 1.5rem;
     font-size: 0.8rem;
     margin-top: 4rem;
   }
-
   .sobre-nos-btn:hover {
     background: #f5f1eb;
     color: #5c5545;
   }
-
   .main-title {
     margin-bottom: 2rem;
   }
-
   .bottom-buttons {
     position: relative;
     bottom: 4rem;
@@ -400,7 +503,6 @@ font-style: italic;
     gap: 1.5rem;
     align-items: center;
   }
-
   .service-btn,
   .contact-btn {
     width: 200px;
@@ -416,23 +518,18 @@ font-style: italic;
     padding: 0 1.5rem;
     margin-bottom: 2.5rem;
   }
-
   .title-line1 {
     font-size: 2.3rem;
   }
-
   .title-line2 {
     font-size: 2.8rem;
   }
-
   .triangle-content {
     margin-bottom: 2.5rem;
   }
-
   .main-title {
     margin-bottom: 2.5rem;
   }
-
   .bottom-buttons {
     bottom: 4rem;
     gap: 1.5rem;
@@ -446,37 +543,30 @@ font-style: italic;
     padding: 0 1rem;
     margin-bottom: 2rem;
   }
-
-  .title-line1 {
-    font-size: 2.5rem;
-    margin-bottom: -10px;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 2.5rem;
   }
-
+  .title-line1 {
+    margin-bottom: -10px;
+  }
   .triangle-content {
     margin-bottom: 2rem;
   }
-
   .main-title {
     margin-bottom: 1rem;
   }
-
   .sobre-nos-btn {
     margin-top: 4rem;
     padding: 0.7rem 1.8rem;
     font-size: 0.75rem;
   }
-
   .service-btn,
   .contact-btn {
     width: 200px;
     padding: 0.7rem 1.3rem;
     font-size: 0.75rem;
   }
-
   .bottom-buttons {
     bottom: 3.2rem;
     gap: 1.5rem;
@@ -484,45 +574,35 @@ font-style: italic;
 }
 
 /* Mobile pequeno (360px - 480px) */
-@media (max-width: 360px) {
+@media (max-width: 300px) {
   .top-text {
     font-size: 0.85rem;
     padding: 0 0.5rem;
     margin-bottom: 1.5rem;
   }
-
-  .title-line1 {
-    font-size: 2.2rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 2.2rem;
   }
-
   .triangle-content {
     margin-bottom: 1.5rem;
   }
-
   .main-title {
     margin-bottom: 1.5rem;
   }
-
   .sobre-nos-btn {
     padding: 0.6rem 1.5rem;
     font-size: 0.7rem;
   }
-
   .service-btn,
   .contact-btn {
     width: 160px;
     padding: 0.6rem 1rem;
     font-size: 0.7rem;
   }
-
   .bottom-buttons {
     gap: 1.2rem;
   }
-
   .home-icon {
     top: 0.8rem;
     left: 0.8rem;
@@ -534,38 +614,28 @@ font-style: italic;
   .main-content {
     padding: 1rem;
   }
-
   .top-text {
     font-size: 0.8rem;
     margin-bottom: 1.5rem;
   }
-
   .triangle-content {
     margin-bottom: 1.5rem;
   }
-
-  .title-line1 {
-    font-size: 1.5rem;
-  }
-
+  .title-line1,
   .title-line2 {
     font-size: 1.5rem;
   }
-
   .main-title {
     margin-bottom: 1.5rem;
   }
-
   .sobre-nos-btn {
     padding: 0.5rem 1.2rem;
     font-size: 0.65rem;
   }
-
   .bottom-buttons {
     flex-direction: row;
     gap: 2rem;
   }
-
   .service-btn,
   .contact-btn {
     width: auto;
