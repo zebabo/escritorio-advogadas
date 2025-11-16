@@ -102,7 +102,7 @@ export default {
 }
 
 .service-title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 300;
   color: #5c5545;
   margin: 0;
@@ -168,7 +168,7 @@ export default {
 }
 
 .service-text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.6;
@@ -222,7 +222,7 @@ export default {
   }
 
   .service-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -298,7 +298,7 @@ export default {
   }
 
   .service-text {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .bullet {

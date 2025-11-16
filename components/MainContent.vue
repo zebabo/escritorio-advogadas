@@ -286,20 +286,20 @@ export default {
 /* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
 @media (min-width: 769px) and (max-height: 800px) {
   .top-text {
-    top: 2.5rem;
+    top: 5rem;
     font-size: 1.3rem;
     line-height: 1.4;
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -3rem;
+    margin-top: -8rem;
   }
   .title-line1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -309,7 +309,6 @@ export default {
     font-size: 0.8rem;
   }
   .bottom-buttons {
-    bottom: 4rem;
     padding: 0 8rem;
   }
   .service-btn,
@@ -322,20 +321,20 @@ export default {
 /* Altura 650px - 700px (laptops compactos) */
 @media (min-width: 769px) and (max-height: 700px) {
   .top-text {
-    top: 2.5rem;
+    top: 5rem;
     font-size: 1.3rem;
     line-height: 1.4;
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -3rem;
+    margin-top: -8rem;
   }
   .title-line1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -345,7 +344,6 @@ export default {
     font-size: 0.8rem;
   }
   .bottom-buttons {
-    bottom: 4rem;
     padding: 0 8rem;
   }
   .service-btn,
@@ -358,20 +356,20 @@ export default {
 /* Altura 600px - 650px (laptops muito compactos) */
 @media (min-width: 769px) and (max-height: 650px) {
    .top-text {
-    top: 2.5rem;
+    top: 5rem;
     font-size: 1.3rem;
     line-height: 1.4;
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -3rem;
+    margin-top: -8rem;
   }
   .title-line1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -381,7 +379,6 @@ export default {
     font-size: 0.8rem;
   }
   .bottom-buttons {
-    bottom: 4rem;
     padding: 0 8rem;
   }
   .service-btn,
@@ -394,7 +391,7 @@ export default {
 /* Altura 550px - 600px (netbooks) */
 @media (min-width: 769px) and (max-height: 600px) {
    .top-text {
-    top: 2.5rem;
+    top: 5rem;
     font-size: 1.3rem;
     line-height: 1.4;
     max-width: 1200px;
@@ -403,11 +400,11 @@ export default {
     margin-top: -3rem;
   }
   .title-line1 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -417,7 +414,6 @@ export default {
     font-size: 0.8rem;
   }
   .bottom-buttons {
-    bottom: 4rem;
     padding: 0 8rem;
   }
   .service-btn,
