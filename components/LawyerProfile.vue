@@ -419,6 +419,8 @@ export default {
 
 
 @media (max-width: 1200px) {
+
+
   .image-container {
     width: 400px;
     height: 620px;
@@ -433,15 +435,20 @@ export default {
   }
 
   .profile-description {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 1024px) {
+
+.lawyer-profile {
+    padding: 30px 25px;
+  }
+
   .image-container {
     width: 350px;
     height: 470px;
-    margin-top: 180px;
+    margin-top: 200px;
   }
 
   .profile-name {
@@ -455,7 +462,7 @@ export default {
 
 @media (max-width: 768px) {
   .lawyer-profile {
-    padding: 40px 15px;
+    padding: 40px 25px;
   }
 
   .profile-container {
@@ -507,7 +514,7 @@ export default {
 
 @media (max-width: 480px) {
   .lawyer-profile {
-    padding: 30px 10px;
+    padding: 30px 25px;
   }
 
   .image-container {

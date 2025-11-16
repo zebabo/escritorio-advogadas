@@ -18,7 +18,7 @@
           <router-link to="/" @click="closeMenu" class="menu-link">Início</router-link>
         </li>
         <li>
-          <a href="#servicos" @click="handleMenuClick" class="menu-link">Serviços</a>
+          <a href="/services" @click="handleMenuClick" class="menu-link">Serviços</a>
         </li>
         <li>
           <router-link to="/team" @click="closeMenu" class="menu-link">Equipa</router-link>
@@ -51,35 +51,24 @@ export default {
     },
     handleMenuClick(event) {
       this.closeMenu()
-
-      // Se o clique foi num link com âncora, fazer scroll para a secção
       const href = event.target.getAttribute('href')
       if (href && href.startsWith('#')) {
         this.scrollToSection(href.substring(1))
       }
     },
     scrollToSection(sectionId) {
-      // Pequeno delay para o menu fechar primeiro
       setTimeout(() => {
         if (sectionId === 'inicio') {
-          // Scroll para o topo da página
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          })
+          window.scrollTo({ top: 0, behavior: 'smooth' })
         } else {
           const element = document.getElementById(sectionId)
           if (element) {
-            element.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            })
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
           }
         }
       }, 400)
     },
   },
-  // Fechar menu quando pressionar ESC
   mounted() {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && this.isMenuOpen) {
@@ -95,7 +84,7 @@ export default {
   position: relative;
 }
 
-/* Menu Button */
+/* Menu Button - normal desktop */
 .menu-button {
   position: fixed;
   top: 25px;
@@ -260,13 +249,8 @@ export default {
   z-index: 999;
 }
 
-/* Responsivo */
+/* Responsivo: tablet ≤768px */
 @media (max-width: 768px) {
-  .side-menu {
-    width: 280px;
-    left: -280px;
-  }
-
   .menu-button {
     top: 20px;
     left: 20px;
@@ -276,6 +260,12 @@ export default {
   .menu-button span {
     width: 20px;
     height: 2px;
+    margin: 4px 0;
+  }
+
+  .side-menu {
+    width: 280px;
+    left: -280px;
   }
 
   .menu-header {
@@ -296,16 +286,23 @@ export default {
   }
 }
 
+/* Responsivo: mobile ≤480px */
 @media (max-width: 480px) {
-  .side-menu {
-    width: 250px;
-    left: -250px;
-  }
-
   .menu-button {
     top: 15px;
     left: 15px;
     padding: 8px;
+  }
+
+  .menu-button span {
+    width: 16px;
+    height: 2px;
+    margin: 3px 0;
+  }
+
+  .side-menu {
+    width: 250px;
+    left: -250px;
   }
 
   .menu-header {

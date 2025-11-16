@@ -47,31 +47,44 @@ export default {
 </script>
 
 <style scoped>
+/* Estilo igual ao menu-button */
 .home-button {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+
+  background: #f1eee9;
+  border: 2px solid #8b7355;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 15px;
-  cursor: pointer;
+
   transition: all 0.3s ease;
   text-decoration: none;
-  z-index: 100;
+  z-index: 1001;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.home-button.fixed-position {
-  position: fixed;
-  top: 30px;
-  right: 30px;
+/* Hover igual ao menu-button */
+.home-button:hover {
+  background: #e8e4dc;
+  border-color: #5c5545;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .home-icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  width: 28px;
+  height: 28px;
+  transition: 0.3s ease;
 }
 
+/* Texto opcional continua igual */
 .home-text {
   font-family: 'Object Sans', sans-serif;
   font-size: 1rem;
@@ -80,54 +93,31 @@ export default {
   text-transform: uppercase;
 }
 
-.home-button:hover {
-  transform: translateY(-2px);
-}
-
-.home-button:hover .home-icon {
-  transform: scale(1.1);
-}
-
-.home-button:active {
-  transform: translateY(0);
-}
-
-.home-button:focus {
-  outline-offset: 4px;
-}
-
-/* Responsivo */
+/* Resposivo igual ao menu-button */
 @media (max-width: 768px) {
-  .home-button.fixed-position {
+  .home-button {
     top: 20px;
     right: 20px;
-    padding: 12px;
-  }
-
-  .home-icon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .home-text {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-button.fixed-position {
-    top: 15px;
-    right: 15px;
     padding: 10px;
   }
 
   .home-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .home-text {
-    font-size: 0.8rem;
+    width: 18px;
+    height: 18px;
   }
 }
+
+@media (max-width: 480px) {
+  .home-button {
+    top: 15px;
+    right: 15px;
+    padding: 8px;
+  }
+
+  .home-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
 </style>

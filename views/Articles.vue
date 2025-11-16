@@ -140,7 +140,7 @@ export default {
   }
 
   .container {
-    padding: 0 15px;
+    padding: 0 25px;
   }
 }
 
@@ -160,6 +160,10 @@ export default {
   .header-divider {
     width: 100px;
     height: 3px;
+  }
+
+  .container {
+    padding: 0 20px;
   }
 }
 </style>

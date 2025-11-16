@@ -485,6 +485,11 @@ export default {
 }
 
 @media (max-width: 1200px) {
+
+   .grid-container {
+    padding: 0 30px;
+  }
+
   .articles-grid {
     padding: 60px 0;
   }
@@ -512,6 +517,11 @@ export default {
 }
 
 @media (max-width: 1024px) {
+
+   .grid-container {
+    padding: 0 30px;
+  }
+
   .articles-grid {
     padding: 60px 0;
   }
@@ -539,6 +549,11 @@ export default {
 }
 
 @media (max-width: 768px) {
+
+   .grid-container {
+    padding: 0 30px;
+  }
+
   .articles-grid {
     padding: 40px 0;
   }
@@ -616,7 +631,7 @@ export default {
 
 @media (max-width: 480px) {
   .grid-container {
-    padding: 0 15px;
+    padding: 0 30px;
   }
 
   .article-card {

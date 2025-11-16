@@ -25,7 +25,7 @@
 
     <!-- Bottom buttons -->
     <div class="bottom-buttons">
-      <button class="service-btn">SERVIÇOS</button>
+     <router-link to="/services" class="service-btn">SERVIÇOS</router-link>
       <router-link to="/articles" class="contact-btn">ARTIGOS</router-link>
     </div>
   </section>

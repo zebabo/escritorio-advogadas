@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "title": "Direitos e Deveres no Divórcio: Guia Essencial",
-    "excerpt": "O processo de divórcio envolve várias questões legais complexas. Desde a divisão de bens até à regulação do poder paternal, é fundamental conhecer os seus direitos e obrigações. Este artigo aborda os aspetos mais importantes do processo de divórcio em Portugal, fornecendo orientações práticas para quem enfrenta esta situação.",
-    "fullContent": "",
+    "title": "O Regime do Maior Acompanhado",
+    "excerpt": "A Lei n.º 49/2018 substituiu os regimes de interdição e inabilitação, criando o Regime do Maior Acompanhado, que assegura um apoio proporcional a adultos cuja autonomia esteja limitada.",
+    "fullContent": "<h3>O Regime do Maior Acompanhado</h3><p>A Lei n.º 49/2018, de 14 de agosto, veio estabelecer o Regime do Maior Acompanhado, eliminando os institutos da interdição e da inabilitação.</p><br/><p>Este regime visa proteger pessoas adultas que, por motivos de saúde, deficiência ou outras situações que limitem a sua autonomia, não conseguem exercer plenamente os seus direitos e cumprir os seus deveres de forma consciente.</p><br/><p>Ao contrário das antigas medidas de interdição e inabilitação, que retiravam capacidades à pessoa, o Regime do Maior Acompanhado assenta numa lógica de apoio proporcional, intervindo apenas nas áreas em que a pessoa necessita efetivamente de ajuda.</p><br/><p>Cabe aos Tribunais avaliar cada caso individualmente e definir em que matérias a pessoa mantém autonomia total e em quais necessita de acompanhamento. Assim, por exemplo, alguém pode precisar de apoio na gestão financeira ou na celebração de contratos, mas continuar apto a assumir responsabilidades familiares.</p><br/><h4>Quem pode pedir o acompanhamento?</h4><p>O pedido para instauração do processo pode ser apresentado pelas seguintes pessoas:</p><ul><li>O próprio adulto que necessita de acompanhamento;</li><li>O cônjuge ou unido de facto;</li><li>Parentes sucessíveis (pais, avós, irmãos, tios, primos);</li><li>O Ministério Público.</li></ul><br/><h4>Quem pode ser Acompanhante?</h4><p>A função de Acompanhante pode ser desempenhada por qualquer pessoa maior de idade, escolhida pela pessoa acompanhada e no pleno uso dos seus direitos. Se necessário, o Tribunal pode nomear mais do que um Acompanhante, distribuindo funções específicas entre eles.</p><br/><p>A missão do Acompanhante é sempre orientada para a proteção, o bem-estar e a melhoria da qualidade de vida da pessoa acompanhada.</p><br/><h4>Mudança de Acompanhante</h4><p>A pessoa acompanhada pode, a qualquer momento, pedir ao Tribunal a substituição do Acompanhante, sempre que entenda necessário.</p>",
     "author": "Carina Babo",
     "authorImage": "/images/carina.png",
     "date": "2024-11-15",
     "category": "Direito de Família",
-    "tags": ["Divórcio", "Direito de Família", "Poder Paternal"],
-    "readTime": 8
+    "tags": ["Maior Acompanhado", "Direito das Pessoas", "Autonomia"],
+    "readTime": 7
   },
   {
     "id": 2,
@@ -23,5 +23,4 @@
     "tags": ["Imigração", "Lei 61/2025", "AIMA", "Residência"],
     "readTime": 10
   }
-
 ]
