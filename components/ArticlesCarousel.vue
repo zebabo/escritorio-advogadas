@@ -291,7 +291,7 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 20px;
+  padding: 30px;
   overflow-y: auto;
 }
 
@@ -485,8 +485,7 @@ export default {
 }
 
 @media (max-width: 1200px) {
-
-   .grid-container {
+  .grid-container {
     padding: 0 30px;
   }
 
@@ -499,26 +498,33 @@ export default {
   }
 
   .article-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .read-more-btn {
-    padding: 8px 18px;
+    padding: 9px 18px;
     font-size: 0.8rem;
   }
 
   .modal-content {
-    padding: 40px;
+    padding: 80px;
   }
 
   .modal-title {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
+  }
+
+  .modal-intro {
+    font-size: 1.4rem;
+  }
+
+  .modal-full-content {
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 1024px) {
-
-   .grid-container {
+  .grid-container {
     padding: 0 30px;
   }
 
@@ -530,28 +536,51 @@ export default {
     padding: 25px;
   }
 
+  .author-name {
+    font-size: 1.1rem;
+  }
+
+  .article-date {
+    font-size: 0.85rem;
+  }
+
   .article-title {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .read-more-btn {
-    padding: 8px 18px;
-    font-size: 0.8rem;
+    padding: 9px 16px;
+    font-size: 0.75rem;
   }
 
   .modal-content {
-    padding: 40px;
+    padding: 70px;
   }
 
   .modal-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+  }
+
+  .modal-intro {
+    font-size: 1.3rem;
+  }
+
+  .modal-full-content {
+    font-size: 1.25rem;
+  }
+
+  .modal-full-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .modal-full-content h4 {
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 768px) {
-
-   .grid-container {
-    padding: 0 30px;
+  .grid-container {
+    padding: 0 25px;
   }
 
   .articles-grid {
@@ -578,11 +607,11 @@ export default {
   }
 
   .author-name {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .article-date {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .article-title {
@@ -590,21 +619,21 @@ export default {
   }
 
   .tag {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 3px 8px;
   }
 
   .read-more-btn {
-    padding: 8px 18px;
-    font-size: 0.8rem;
+    padding: 9px 16px;
+    font-size: 0.75rem;
   }
 
   .modal-content {
-    padding: 30px;
+    padding: 50px;
   }
 
   .modal-title {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
 
   .modal-header {
@@ -612,26 +641,50 @@ export default {
     gap: 15px;
   }
 
-  .modal-footer {
-    justify-content: center;
-  }
-
-  .modal-full-content {
+  .modal-author-name {
     font-size: 1.4rem;
   }
 
+  .modal-article-date {
+    font-size: 1rem;
+  }
+
+  .modal-category {
+    font-size: 1rem;
+  }
+
+  .modal-intro {
+    font-size: 1.3rem;
+  }
+
+  .modal-full-content {
+    font-size: 1.25rem;
+  }
+
   .modal-full-content h3 {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
 
   .modal-full-content h4 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+  }
+
+  .modal-contact {
+    font-size: 1.2rem;
+  }
+
+  .modal-tag {
+    font-size: 1rem;
+  }
+
+  .modal-footer {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
   .grid-container {
-    padding: 0 30px;
+    padding: 0 20px;
   }
 
   .article-card {
@@ -644,33 +697,33 @@ export default {
   }
 
   .author-name {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 
   .article-date {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .article-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .tag {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 3px 7px;
   }
 
   .read-more-btn {
-    padding: 8px 16px;
+    padding: 7px 12px;
     font-size: 0.65rem;
   }
 
   .modal-content {
-    padding: 20px;
+    padding: 35px;
   }
 
   .modal-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .close-modal {
@@ -679,28 +732,41 @@ export default {
     right: 20px;
   }
 
-  .modal-intro {
-    font-size: 1.4rem;
-  }
-
-  .modal-full-content {
-    font-size: 1.3rem;
-  }
-
-  .modal-full-content h3 {
-    font-size: 1.6rem;
-  }
-
-  .modal-full-content h4 {
-    font-size: 1.4rem;
-  }
-
-  .modal-contact {
+  .modal-author-name {
     font-size: 1.2rem;
   }
 
-  .modal-tag {
+  .modal-article-date {
+    font-size: 0.9rem;
+  }
+
+  .modal-category {
+    font-size: 0.9rem;
+  }
+
+  .modal-intro {
+    font-size: 1.1rem;
+    padding: 15px;
+  }
+
+  .modal-full-content {
+    font-size: 1.05rem;
+  }
+
+  .modal-full-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .modal-full-content h4 {
+    font-size: 1.25rem;
+  }
+
+  .modal-contact {
     font-size: 1rem;
+  }
+
+  .modal-tag {
+    font-size: 0.9rem;
   }
 }
 </style>
