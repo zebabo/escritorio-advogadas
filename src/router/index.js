@@ -18,6 +18,10 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
   ],
+  // Scroll instantâneo ao topo em todas as navegações
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 export default router

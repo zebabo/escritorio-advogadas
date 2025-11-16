@@ -4,7 +4,7 @@
     <div class="intro-content">
       <div class="logo-container">
         <!-- Se tiveres logo, descomenta a linha abaixo e comenta a h1 -->
-        <img src="/images/logo.png" alt="Logo Escritório" class="logo" />
+        <img src="/images/Logo.svg" alt="Logo Escritório" class="logo" />
       </div>
     </div>
 
@@ -80,41 +80,25 @@ export default {
 /* Variações responsivas para o logo maior */
 @media (max-width: 1200px) {
   .logo {
-    width: 700px;
+    width: 400px;
   }
 }
 
 @media (max-width: 900px) {
   .logo {
     width: 80vw; /* 80% da largura da viewport */
-    max-width: 600px;
+    max-width: 400px;
   }
 }
 
 @media (max-width: 600px) {
   .logo {
     width: 90vw; /* 90% da largura da viewport */
-    max-width: 400px;
+    max-width: 300px;
   }
 }
 
-@media (min-width: 769px) and (max-height: 600px) {
-  .logo {
-    width: 430px;
-  }
-}
-  @media (min-width: 769px) and (max-height: 800px) {
-  .logo {
-    width: 580px;
-  }
-}
 
-@media (min-width: 769px) and (max-height: 1000px) {
-  .logo {
-    width: 600px;
-  }
-
-   }
 
 /* Scroll Indicator */
 .scroll-indicator {

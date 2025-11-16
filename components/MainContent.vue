@@ -116,7 +116,6 @@ export default {
 .title-line2 {
   display: block;
   font-size: 7rem;
-  margin-bottom: 6rem;
 }
 
 .title-line1 {

@@ -245,7 +245,7 @@ export default {
   }
 
   .page-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
     max-width: 600px;
     padding: 0 20px;
   }
@@ -275,7 +275,7 @@ export default {
   }
 
   .page-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     max-width: 100%;
     padding: 0 25px;
   }
