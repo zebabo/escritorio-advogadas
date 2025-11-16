@@ -2,7 +2,8 @@
   <div class="service-card" :class="{ expanded: isExpanded }">
     <div class="card-header" @click="toggleExpanded">
       <div class="header-left">
-        <span class="service-icon">{{ icon }}</span>
+        <img src="/images/balanca.svg" alt="Ícone" class="service-icon" />
+
         <h2 class="service-title">{{ title }}</h2>
       </div>
       <button class="expand-button" :class="{ active: isExpanded }">
@@ -39,10 +40,6 @@ export default {
       type: Array,
       required: true
     },
-    icon: {
-      type: String,
-      default: '⚖'
-    }
   },
   data() {
     return {
@@ -96,10 +93,11 @@ export default {
 }
 
 .service-icon {
-  font-size: 3rem;
-  color: #5c5545;
-  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+
 }
+
 
 .service-title {
   font-size: 1.4rem;
@@ -111,13 +109,13 @@ export default {
 }
 
 .expand-button {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #5c5545;
   border: none;
   color: #f1eee9;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -204,17 +202,17 @@ export default {
   }
 
   .service-icon {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .service-title {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 
   .expand-button {
-    width: 32px;
-    height: 32px;
-    font-size: 1.4rem;
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
   }
 
   .card-content {
@@ -236,11 +234,11 @@ export default {
   }
 
   .service-icon {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .service-title {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
   }
 
   .expand-button {
@@ -268,7 +266,7 @@ export default {
 
 @media (max-width: 480px) {
   .card-header {
-    padding: 18px 25px;
+    padding: 8px 25px;
   }
 
   .header-left {
@@ -276,17 +274,17 @@ export default {
   }
 
   .service-icon {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .service-title {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
   }
 
   .expand-button {
-    width: 28px;
-    height: 28px;
-    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
   }
 
   .card-content {

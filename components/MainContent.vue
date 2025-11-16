@@ -56,12 +56,12 @@ export default {
 
 .top-text {
   position: absolute;
-  top: 10rem;
+  top: 13rem;
   left: 50%;
   transform: translateX(-50%);
   max-width: 1800px;
   text-align: center;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-family: 'Raleway';
   font-style: italic;
   color: white;
@@ -184,7 +184,7 @@ export default {
   }
   .top-text {
     max-width: 1600px;
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -202,7 +202,7 @@ export default {
   }
   .top-text {
     max-width: 1400px;
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
 }
 
@@ -221,7 +221,7 @@ export default {
   .top-text {
     max-width: 1200px;
     font-size: 2rem;
-    top: 8rem;
+    top: 10rem;
   }
   .sobre-nos-btn {
     padding: 0.9rem 2.2rem;
@@ -244,7 +244,7 @@ export default {
   }
   .top-text {
     max-width: 1000px;
-    top: 6rem;
+    top: 8rem;
     font-size: 2rem;
   }
   .service-btn,
@@ -269,7 +269,7 @@ export default {
   }
   .top-text {
     max-width: 800px;
-    top: 5rem;
+    top: 7rem;
     font-size: 1.9rem;
   }
 }
@@ -279,15 +279,15 @@ export default {
 /* Altura 800px+ (laptops grandes) */
 @media (min-width: 769px) and (min-height: 1000px) {
   .top-text {
-    top: 8rem;
+    top: 11rem;
   }
 }
 
 
 @media (min-width: 769px) and (max-height: 1000px) {
   .top-text {
-    top: 7rem;
-    font-size: 1.4rem;
+    top: 6rem;
+    font-size: 1.8rem;
     line-height: 1.4;
     max-width: 1200px;
   }
@@ -321,8 +321,8 @@ export default {
 /* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
 @media (min-width: 769px) and (max-height: 800px) {
   .top-text {
-    top: 7rem;
-    font-size: 1.4rem;
+    top: 6rem;
+    font-size: 1.8rem;
     line-height: 1.4;
     max-width: 1200px;
   }
@@ -357,8 +357,8 @@ export default {
 /* Altura 650px - 700px (laptops compactos) */
 @media (min-width: 769px) and (max-height: 700px) {
   .top-text {
-    top: 7rem;
-    font-size: 1.4rem;
+    top: 6rem;
+    font-size: 1.7rem;
     line-height: 1.4;
     max-width: 1200px;
   }
@@ -392,8 +392,8 @@ export default {
 /* Altura 600px - 650px (laptops muito compactos) */
 @media (min-width: 769px) and (max-height: 650px) {
    .top-text {
-    top: 5rem;
-    font-size: 1.3rem;
+    top: 4rem;
+    font-size: 1.6rem;
     line-height: 1.4;
     max-width: 1200px;
   }
@@ -427,8 +427,8 @@ export default {
 /* Altura 550px - 600px (netbooks) */
 @media (min-width: 769px) and (max-height: 600px) {
    .top-text {
-    top: 5rem;
-    font-size: 1.3rem;
+    top: 4rem;
+    font-size: 1.5rem;
     line-height: 1.4;
     max-width: 1200px;
   }
@@ -573,7 +573,7 @@ export default {
   .top-text {
     font-size: 0.9rem;
     padding: 0 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
   .title-line1,
   .title-line2 {
@@ -582,6 +582,10 @@ export default {
   .title-line1 {
     margin-bottom: -10px;
   }
+
+    .title-line2 {
+    margin-bottom: -40px;
+  }
   .triangle-content {
     margin-bottom: 2rem;
   }
@@ -589,7 +593,7 @@ export default {
     margin-bottom: 1rem;
   }
   .sobre-nos-btn {
-    margin-top: 4rem;
+    margin-top: 6rem;
     padding: 0.7rem 1.8rem;
     font-size: 0.75rem;
   }

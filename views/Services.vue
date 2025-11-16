@@ -23,7 +23,6 @@
         :key="index"
         :title="service.title"
         :services="service.services"
-        :icon="service.icon"
       />
     </section>
 
@@ -48,72 +47,65 @@ export default {
       services: [
         {
           title: 'Comercial e Societário',
-          icon: '⚖',
           services: [
-            'Elaboração e análise de contratos comerciais ;',
-            'Constituição e dissolução de sociedades comerciais ;',
-            'Ações judiciais comerciais e societárias (impugnação de deliberações sociais, ações de responsabilidade civil, etc) ;',
+            'Elaboração e análise de contratos comerciais;',
+            'Constituição e dissolução de sociedades comerciais;',
+            'Ações judiciais comerciais e societárias (impugnação de deliberações sociais, ações de responsabilidade civil, etc);',
             'Atos societários (cessão de quotas, aumentos de capital, elaboração de atas, etc).'
           ]
         },
         {
           title: 'Contencioso',
-          icon: '⚖',
           services: [
-            'Cobrança judicial e extrajudicial de créditos ;',
+            'Cobrança judicial e extrajudicial de créditos;',
             'Injunções ;',
-            'Insolvências (de pessoa singular ou coletiva) ;',
+            'Insolvências (de pessoa singular ou coletiva);',
             'Litígios judiciais e extrajudiciais.'
           ]
         },
         {
           title: 'Criminal e Contraordenacional',
-          icon: '⚖',
           services: [
-            'Representação em processos crime ;',
-            'Representação em processos contraordenacionais ;',
+            'Representação em processos crime;',
+            'Representação em processos contraordenacionais;',
             'Aconselhamento preventivo.'
           ]
         },
         {
           title: 'Família e Sucessões',
-          icon: '⚖',
           services: [
-            'Processos de maior acompanhado ;',
-            'Partilhas e Inventários ;',
-            'Testamentos ;',
-            'Regulação das responsabilidades parentais ;',
+            'Processos de maior acompanhado;',
+            'Partilhas e Inventários;',
+            'Testamentos;',
+            'Regulação das responsabilidades parentais;',
             'Divórcios.'
           ]
         },
         {
           title: 'Fiscal',
-          icon: '⚖',
           services: [
-            'Processos Tributários ;',
+            'Processos Tributários;',
             'Imposto (IRS, IRC, Imposto do Selo, IMT).'
           ]
         },
         {
           title: 'Laboral',
-          icon: '⚖',
           services: [
-            'Elaboração e cessação de contratos de trabalho ;',
-            'Procedimentos disciplinares ;',
-            'Processos judiciais e contraordenacionais ;',
-            'Despedimentos ;',
+            'Elaboração e cessação de contratos de trabalho;',
+            'Procedimentos disciplinares;',
+            'Processos judiciais e contraordenacionais;',
+            'Despedimentos;',
             'Acidentes de trabalho.'
           ]
         },
         {
           title: 'Registos e Notariado',
-          icon: '⚖',
           services: [
-            'Reconhecimento de assinaturas ;',
-            'Autenticação de documentos ;',
-            'Certificação de traduções ;',
-            'Certificação de fotocópias ;',
-            'Registos ;',
+            'Reconhecimento de assinaturas;',
+            'Autenticação de documentos;',
+            'Certificação de traduções;',
+            'Certificação de fotocópias;',
+            'Registos;',
             'Elaboração e análise de contratos.'
           ]
         }

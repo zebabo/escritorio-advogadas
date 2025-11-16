@@ -423,7 +423,7 @@ export default {
   }
 
   .content-box {
-    padding: 50px 80px;
+    padding: 50px 100px;
   }
 
   .profile-name {
@@ -451,6 +451,7 @@ export default {
 
   .profile-description {
     font-size: 1.8rem;
+    margin-top: revert-layer;
   }
 }
 
@@ -474,7 +475,8 @@ export default {
   }
 
   .profile-description {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-top: revert-layer;
   }
 
    .extra-info {
@@ -522,7 +524,8 @@ export default {
   }
 
   .profile-description {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-top: revert-layer;
   }
 
   .profile-label {
@@ -551,15 +554,16 @@ export default {
   }
 
   .profile-name {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 
   .profile-description {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    margin-top: revert-layer;
   }
 
   .profile-label {
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 2px;
   }
 
@@ -569,9 +573,9 @@ export default {
   }
 
   .expand-button {
-    width: 30px;
-    height: 30px;
-    font-size: 1.8rem;
+    width: 28px;
+    height: 28px;
+    font-size: 1.4rem;
   }
 
   .extra-info {
