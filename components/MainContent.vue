@@ -305,8 +305,8 @@ export default {
     margin-bottom: 2.5rem;
   }
   .sobre-nos-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
     margin-top: 20px;
   }
   .bottom-buttons {
@@ -314,8 +314,8 @@ export default {
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
 }
 /* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
@@ -340,8 +340,8 @@ export default {
     margin-bottom: 2.5rem;
   }
   .sobre-nos-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
     margin-top: 20px;
   }
   .bottom-buttons {
@@ -349,8 +349,8 @@ export default {
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -376,16 +376,16 @@ export default {
     margin-bottom: 2.5rem;
   }
   .sobre-nos-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
   .bottom-buttons {
     padding: 0 8rem;
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -411,16 +411,16 @@ export default {
     margin-bottom: 2.5rem;
   }
   .sobre-nos-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
   .bottom-buttons {
     padding: 0 8rem;
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -446,16 +446,16 @@ export default {
     margin-bottom: 2.5rem;
   }
   .sobre-nos-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
   .bottom-buttons {
     padding: 0 8rem;
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.8rem;
-    font-size: 0.8rem;
+    padding: 1rem 2.1rem;
+    font-size: 0.9rem;
   }
 }
 

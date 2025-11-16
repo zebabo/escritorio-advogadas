@@ -105,9 +105,16 @@ export default {
 }
   @media (min-width: 769px) and (max-height: 800px) {
   .logo {
-    width: 600px;
+    width: 580px;
   }
 }
+
+@media (min-width: 769px) and (max-height: 1000px) {
+  .logo {
+    width: 600px;
+  }
+
+   }
 
 /* Scroll Indicator */
 .scroll-indicator {
