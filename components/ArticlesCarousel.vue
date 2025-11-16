@@ -384,7 +384,7 @@ export default {
 }
 
 .modal-title {
-  font-size: 3.2rem;
+  font-size: 2.8rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.3;
@@ -397,7 +397,7 @@ export default {
 }
 
 .modal-intro {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #ffffff;
   margin-bottom: 30px;
   font-family: 'Aileron', sans-serif;
@@ -409,7 +409,7 @@ export default {
 }
 
 .modal-full-content {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #5c5545;
   line-height: 1.8;
   font-family: 'Aileron', sans-serif;
@@ -515,7 +515,7 @@ export default {
   }
 
   .modal-intro {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .modal-full-content {
@@ -562,7 +562,7 @@ export default {
   }
 
   .modal-intro {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .modal-full-content {

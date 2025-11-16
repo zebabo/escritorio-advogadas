@@ -8,7 +8,7 @@
       <div class="container">
         <div class="header-content">
           <h1 class="page-title">Artigos Jurídicos</h1>
-          <p class="page-subtitle">Conhecimento e insights das nossas especialistas em direito</p>
+          <p class="page-subtitle">Conhecimento e insights das nossas especialistas em direito.</p>
           <div class="header-divider"></div>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default {
 }
 
 .page-title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 100;
   color: #5c5545;
   line-height: 1.1;
@@ -81,7 +81,7 @@ export default {
 }
 
 .page-subtitle {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.4;
@@ -109,11 +109,12 @@ export default {
   }
 
   .page-title {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 
   .page-subtitle {
-    font-size: 2rem;
+    font-size: 1rem;
+    max-width: 1100px;
   }
 
   .header-divider {
@@ -128,11 +129,13 @@ export default {
   }
 
   .page-title {
-    font-size: 4rem;
+    font-size: 2.8rem;
   }
 
   .page-subtitle {
-    font-size: 1.8rem;
+    font-size: 1rem;
+    max-width: 600px;
+    padding: 0 20px;
   }
 
   .header-divider {
@@ -149,12 +152,14 @@ export default {
     padding: 60px 0 30px 0;
   }
 
-  .page-title {
-    font-size: 3rem;
+ .page-title {
+    font-size: 2rem;
   }
 
   .page-subtitle {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
+    max-width: 100%;
+    padding: 0 25px;
   }
 
   .header-divider {

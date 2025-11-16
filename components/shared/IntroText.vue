@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .intro-text {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #ffffff;
   margin-bottom: 30px;
   font-style: italic;
@@ -30,14 +30,14 @@ export default {
 
 @media (max-width: 768px) {
   .intro-text {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     padding: 15px;
   }
 }
 
 @media (max-width: 480px) {
   .intro-text {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
   }
 }
 </style>

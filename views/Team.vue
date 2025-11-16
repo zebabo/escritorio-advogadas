@@ -133,7 +133,7 @@ export default {
 }
 
 .page-title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 100;
   color: #5c5545;
   line-height: 1.1;
@@ -142,7 +142,7 @@ export default {
 }
 
 .page-subtitle {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.5;
@@ -182,11 +182,11 @@ export default {
   }
 
   .page-title {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 
   .page-subtitle {
-    font-size: 1.4rem;
+    font-size: 1rem;
     max-width: 1100px;
   }
 
@@ -210,11 +210,11 @@ export default {
   }
 
   .page-title {
-    font-size: 4rem;
+    font-size: 2.8rem;
   }
 
   .page-subtitle {
-    font-size: 1.2rem;
+    font-size: 1rem;
     max-width: 600px;
     padding: 0 20px;
   }
@@ -234,11 +234,11 @@ export default {
   }
 
   .page-title {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .page-subtitle {
-    font-size: 1rem;
+    font-size: 0.8rem;
     max-width: 100%;
     padding: 0 25px;
   }

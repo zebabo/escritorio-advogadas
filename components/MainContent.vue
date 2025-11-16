@@ -286,20 +286,20 @@ export default {
 /* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
 @media (min-width: 769px) and (max-height: 800px) {
   .top-text {
-    top: 5rem;
-    font-size: 1.3rem;
+    top: 7rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -8rem;
+    margin-top: -4rem;
   }
   .title-line1 {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.8rem;
+    font-size: 4.8rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -307,13 +307,14 @@ export default {
   .sobre-nos-btn {
     padding: 0.7rem 1.8rem;
     font-size: 0.8rem;
+    margin-top: 20px;
   }
   .bottom-buttons {
     padding: 0 8rem;
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     font-size: 0.8rem;
   }
 }
@@ -321,20 +322,20 @@ export default {
 /* Altura 650px - 700px (laptops compactos) */
 @media (min-width: 769px) and (max-height: 700px) {
   .top-text {
-    top: 5rem;
-    font-size: 1.3rem;
+    top: 7rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -8rem;
+    margin-top: -4rem;
   }
   .title-line1 {
-    font-size: 3.8rem;
+    font-size: 4.4rem;
     margin-bottom: -15px;
   }
   .title-line2 {
-    font-size: 3.8rem;
+    font-size: 4.4rem;
   }
   .main-title {
     margin-bottom: 2.5rem;
@@ -348,7 +349,7 @@ export default {
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     font-size: 0.8rem;
   }
 }
@@ -362,7 +363,7 @@ export default {
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -8rem;
+    margin-top: -4rem;
   }
   .title-line1 {
     font-size: 3.8rem;
@@ -383,7 +384,7 @@ export default {
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     font-size: 0.8rem;
   }
 }
@@ -397,7 +398,7 @@ export default {
     max-width: 1200px;
   }
   .triangle-content {
-    margin-top: -3rem;
+    margin-top: -2rem;
   }
   .title-line1 {
     font-size: 3.8rem;
@@ -418,7 +419,7 @@ export default {
   }
   .service-btn,
   .contact-btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.7rem 1.8rem;
     font-size: 0.8rem;
   }
 }

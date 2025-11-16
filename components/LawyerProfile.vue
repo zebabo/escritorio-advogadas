@@ -46,11 +46,13 @@
       <div v-if="isExpanded && isDesktop" class="modal-overlay" @click="closeModal">
         <div class="modal-content" @click.stop>
           <button class="modal-close" @click="closeModal">×</button>
+
           <div class="modal-header">
             <span class="modal-label">{{ label }}</span>
             <h3 class="modal-name">{{ name }}</h3>
             <div class="modal-divider"></div>
           </div>
+
           <div class="modal-body" v-html="extraInfo"></div>
         </div>
       </div>
@@ -168,7 +170,7 @@ export default {
 /* Container da imagem */
 .image-container {
   width: 500px;
-  height: 650px;
+  height: 600px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -191,16 +193,14 @@ export default {
 .content-box {
   background: #f1eee9;
   border: none;
-  padding: 60px 80px;
+  padding: 60px 140px;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.profile-header {
-  margin-top: 60px;
-}
+
 
 .profile-label {
   font-size: 1.2rem;
@@ -240,8 +240,8 @@ export default {
 
 /* Botão de expandir */
 .expand-button {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: #5c5545;
   border: none;
@@ -252,7 +252,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 1.05vh;
+
 }
 
 .expand-button:hover {
@@ -273,7 +274,7 @@ export default {
 /* --- ESTILO UNIFICADO PARA EXTRA INFO (mobile + desktop) --- */
 .extra-info,
 .modal-body {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #5c5545;
   line-height: 1.8;
   font-family: 'Aileron', sans-serif;
@@ -415,12 +416,26 @@ export default {
 }
 
 /* Responsividade */
+@media (max-width: 1400px) {
+  .image-container {
+    width: 400px;
+    height: 620px;
+  }
 
+  .content-box {
+    padding: 50px 80px;
+  }
 
+  .profile-name {
+    font-size: 4rem;
+  }
+
+  .profile-description {
+    font-size: 1.8rem;
+  }
+}
 
 @media (max-width: 1200px) {
-
-
   .image-container {
     width: 400px;
     height: 620px;
@@ -440,15 +455,18 @@ export default {
 }
 
 @media (max-width: 1024px) {
-
-.lawyer-profile {
+  .lawyer-profile {
     padding: 30px 25px;
   }
 
   .image-container {
     width: 350px;
     height: 470px;
-    margin-top: 200px;
+    margin-top: 180px;
+  }
+
+  .content-box {
+    padding: 50px 80px;
   }
 
   .profile-name {
@@ -457,6 +475,10 @@ export default {
 
   .profile-description {
     font-size: 1.8rem;
+  }
+
+   .extra-info {
+    font-size: 1.25rem;
   }
 }
 
@@ -488,6 +510,7 @@ export default {
   .image-container {
     width: 300px;
     height: 480px;
+    margin-top: 0;
   }
 
   .content-box {
@@ -508,7 +531,7 @@ export default {
 
   /* Fonte menor da extra info em mobile */
   .extra-info {
-    font-size: 1.6rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -519,7 +542,8 @@ export default {
 
   .image-container {
     width: 250px;
-    height: 420px;
+    height: 340px;
+    margin-top: 0;
   }
 
   .content-box {
@@ -545,13 +569,13 @@ export default {
   }
 
   .expand-button {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     font-size: 1.8rem;
   }
 
   .extra-info {
-    font-size: 1.4rem;
+    font-size: 1.05rem;
   }
 }
 </style>

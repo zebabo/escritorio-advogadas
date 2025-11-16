@@ -1,7 +1,7 @@
 <template>
   <LegalPageLayout
     title="Política de Privacidade"
-    subtitle="Proteção e tratamento dos seus dados pessoais"
+    subtitle="Proteção e tratamento dos seus dados pessoais."
   >
     <IntroText :texts="introTexts" />
 

@@ -29,7 +29,7 @@ export default {
 }
 
 .section :deep(p) {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #5c5545;
   line-height: 1.7;
   margin-bottom: 20px;
@@ -42,7 +42,7 @@ export default {
 }
 
 .section :deep(li) {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #5c5545;
   line-height: 1.7;
   margin-bottom: 15px;
@@ -92,7 +92,7 @@ export default {
   }
   .section :deep(p),
   .section :deep(li) {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     text-align: left;
   }
   .section :deep(.contact-box) {
@@ -102,11 +102,11 @@ export default {
 
 @media (max-width: 480px) {
   .section h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   .section :deep(p),
   .section :deep(li) {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
   }
 }
 </style>

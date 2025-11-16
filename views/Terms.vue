@@ -53,7 +53,7 @@ export default {
 }
 
 .page-title {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 100;
   color: #5c5545;
   line-height: 1.1;
@@ -62,7 +62,7 @@ export default {
 }
 
 .page-subtitle {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   color: #5c5545;
   font-weight: 300;
   line-height: 1.4;

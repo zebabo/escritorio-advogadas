@@ -1,7 +1,7 @@
 <template>
   <LegalPageLayout
     title="Termos de Utilização"
-    subtitle="Condições de acesso e utilização do website"
+    subtitle="Condições de acesso e utilização do website."
   >
     <IntroText :texts="introTexts" />
 
