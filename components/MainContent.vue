@@ -184,7 +184,7 @@ export default {
   }
   .top-text {
     max-width: 1600px;
-    font-size: 2.15rem;
+    font-size: 2rem;
   }
 }
 
@@ -202,7 +202,7 @@ export default {
   }
   .top-text {
     max-width: 1400px;
-    font-size: 2.1rem;
+    font-size: 2rem;
   }
 }
 
@@ -277,12 +277,47 @@ export default {
 /* MEDIA QUERIES PARA ALTURA - LAPTOPS/MACBOOKS */
 
 /* Altura 800px+ (laptops grandes) */
-@media (min-width: 769px) and (min-height: 800px) {
+@media (min-width: 769px) and (min-height: 1000px) {
   .top-text {
     top: 8rem;
   }
 }
 
+
+@media (min-width: 769px) and (max-height: 1000px) {
+  .top-text {
+    top: 7rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    max-width: 1200px;
+  }
+  .triangle-content {
+    margin-top: -4rem;
+  }
+  .title-line1 {
+    font-size: 4.8rem;
+    margin-bottom: -15px;
+  }
+  .title-line2 {
+    font-size: 4.8rem;
+  }
+  .main-title {
+    margin-bottom: 2.5rem;
+  }
+  .sobre-nos-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+    margin-top: 20px;
+  }
+  .bottom-buttons {
+    padding: 0 8rem;
+  }
+  .service-btn,
+  .contact-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.8rem;
+  }
+}
 /* Altura 700px - 800px (MacBook Air 13", laptops comuns) */
 @media (min-width: 769px) and (max-height: 800px) {
   .top-text {
