@@ -19,14 +19,14 @@
           <span class="title-line1">Bem</span>
           <span class="title-line2">Vindo!</span>
         </h1>
-        <router-link to="/team" class="sobre-nos-btn">SOBRE NÓS</router-link>
+        <button class="sobre-nos-btn" @click="navigate('/team')">EQUIPA</button>
       </div>
     </div>
 
     <!-- Bottom buttons -->
     <div class="bottom-buttons">
-     <router-link to="/services" class="service-btn">SERVIÇOS</router-link>
-      <router-link to="/articles" class="contact-btn">ARTIGOS</router-link>
+      <button class="service-btn" @click="navigate('/services')">SERVIÇOS</button>
+      <button class="contact-btn" @click="navigate('/articles')">ARTIGOS</button>
     </div>
   </section>
 </template>
@@ -34,8 +34,15 @@
 <script>
 export default {
   name: 'IntroSection',
+  methods: {
+    navigate(path) {
+      this.$router.push(path)
+      window.scrollTo(0, 0) // scroll instantâneo
+    }
+  }
 }
 </script>
+
 
 <style scoped>
 .main-content {

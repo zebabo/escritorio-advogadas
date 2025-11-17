@@ -15,16 +15,16 @@
       </div>
       <ul class="menu-list">
         <li>
-          <router-link to="/" @click="closeMenu" class="menu-link">Início</router-link>
+          <a href="#" class="menu-link" @click.prevent="navigate('/')">Início</a>
         </li>
         <li>
-          <a href="/services" @click="handleMenuClick" class="menu-link">Serviços</a>
+          <a href="#" class="menu-link" @click.prevent="navigate('/services')">Serviços</a>
         </li>
         <li>
-          <router-link to="/team" @click="closeMenu" class="menu-link">Equipa</router-link>
+          <a href="#" class="menu-link" @click.prevent="navigate('/team')">Equipa</a>
         </li>
         <li>
-          <router-link to="/articles" @click="closeMenu" class="menu-link">Artigos</router-link>
+          <a href="#" class="menu-link" @click.prevent="navigate('/articles')">Artigos</a>
         </li>
       </ul>
     </nav>
@@ -49,25 +49,13 @@ export default {
     closeMenu() {
       this.isMenuOpen = false
     },
-    handleMenuClick(event) {
-      this.closeMenu()
-      const href = event.target.getAttribute('href')
-      if (href && href.startsWith('#')) {
-        this.scrollToSection(href.substring(1))
-      }
-    },
-    scrollToSection(sectionId) {
-      setTimeout(() => {
-        if (sectionId === 'inicio') {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        } else {
-          const element = document.getElementById(sectionId)
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-          }
-        }
-      }, 400)
-    },
+    navigate(path) {
+  this.closeMenu()
+  setTimeout(() => {
+    this.$router.push(path)
+    window.scrollTo(0, 0) // scroll instantâneo
+  }, 400)
+}
   },
   mounted() {
     document.addEventListener('keydown', (e) => {
