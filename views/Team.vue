@@ -21,20 +21,21 @@
     <!-- Conteúdo da equipa -->
     <section class="team-content">
       <!-- Primeira instância - Carina Babo (layout original) -->
-      <LawyerProfile
-        label="ADVOGADA"
-        name="Carina Babo"
-        :description="'Ser advogada é transformar\nconhecimento jurídico\nem soluções concretas.'"
-        :extra-info="carinaExtraInfo"
-        image-url="/images/carina.png"
-        :reverse="false"
-      />
+     <LawyerProfile
+  label="ADVOGADA"
+  name="Carina Babo"
+  :description='"\"Ser advogada é transformar\nconhecimento jurídico\nem soluções concretas.\""'
+  :extra-info="carinaExtraInfo"
+  image-url="/images/carina.png"
+  :reverse="false"
+/>
+
 
       <!-- Segunda instância - Sara Costa (layout invertido) -->
       <LawyerProfile
         label="ADVOGADA"
         name="Sara S. Costa"
-        :description="'Ser advogada é defender princípios,\nservir com integridade e\ntransformar vidas através do direito.'"
+        :description='"\"Ser advogada é defender princípios,\nservir com integridade e\ntransformar vidas através do direito.\""'
         :extra-info="saraExtraInfo"
         image-url="/images/sara.png"
         :reverse="true"

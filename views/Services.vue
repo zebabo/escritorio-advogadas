@@ -49,53 +49,71 @@ export default {
           title: 'Comercial e Societário',
           services: [
             'Elaboração e análise de contratos comerciais;',
-            'Constituição e dissolução de sociedades comerciais;',
+            'Constituição e dissolução de sociedade comerciais;',
             'Ações judiciais comerciais e societárias (impugnação de deliberações sociais, ações de responsabilidade civil, etc);',
-            'Atos societários (cessão de quotas, aumentos de capital, elaboração de atas, etc).'
+            'Atos societários (cessão de quotas, aumentos de capital, elaboração de atas, pactos sociais, acordos parassociais, venda de ações, etc.);'
           ]
         },
         {
-          title: 'Contencioso',
+          title: 'Contencioso e Arbitragem',
           services: [
+            'Direito Civil (direito das obrigações, dos contratos, dos seguros, dos negócios, do consumo, direitos reais, direito executivo, etc.);',
+            'Representação em processos judiciais;',
             'Cobrança judicial e extrajudicial de créditos;',
-            'Injunções ;',
-            'Insolvências (de pessoa singular ou coletiva);',
-            'Litígios judiciais e extrajudiciais.'
+            'Injunções;',
+            'Processos de insolvência e reestruturação;',
+            'Processos de negociação e resolução extrajudicial de conflitos;',
+            'Arbitragens;'
           ]
         },
         {
           title: 'Criminal e Contraordenacional',
           services: [
-            'Representação em processos crime;',
-            'Representação em processos contraordenacionais;',
-            'Aconselhamento preventivo.'
+            'Aconselhamento preventivo;',
+            'Representação em processos-crime;',
+            'Representação em processos contraordenacionais;'
           ]
         },
         {
-          title: 'Família e Sucessões',
+          title: 'Disciplinar Desportivo',
           services: [
+            'Assessoria em processos sancionatórios de natureza disciplinar;',
+            'Direitos de formação e mecanismos de solidariedade;',
+            'Assessoria jurídica global a agentes desportivos;',
+            'Transferências de direitos desportivos;',
+            'Elaboração e análise de contratos de trabalho desportivos;'
+          ]
+        },
+        {
+          title: 'Família, Menores e Sucessões',
+          services: [
+            'Divórcio e separação de bens;',
             'Processos de maior acompanhado;',
             'Partilhas e Inventários;',
             'Testamentos;',
-            'Regulação das responsabilidades parentais;',
-            'Divórcios.'
+            'Regulação das responsabilidades parentais;'
           ]
         },
         {
           title: 'Fiscal',
           services: [
-            'Processos Tributários;',
-            'Imposto (IRS, IRC, Imposto do Selo, IMT).'
+            'Procedimento e processo tributário;',
+            'Impostos (IRS, IRC, Imposto do Selo, IMT);',
+            'Contencioso criminal tributário;',
+            'Contraordenações tributárias;'
           ]
         },
         {
-          title: 'Laboral',
+          title: 'Laboral, Segurança Social e Imigração',
           services: [
             'Elaboração e cessação de contratos de trabalho;',
-            'Procedimentos disciplinares;',
-            'Processos judiciais e contraordenacionais;',
+            'Esclarecimento e resolução de questões relativas às condições de trabalho;',
+            'Processos disciplinares;',
+            'Assessoria em processos judiciais e contraordenacionais;',
             'Despedimentos;',
-            'Acidentes de trabalho.'
+            'Acidentes de trabalho;',
+            'Segurança Social;',
+            'Assessoria em processos de imigração;'
           ]
         },
         {
@@ -105,8 +123,8 @@ export default {
             'Autenticação de documentos;',
             'Certificação de traduções;',
             'Certificação de fotocópias;',
-            'Registos;',
-            'Elaboração e análise de contratos.'
+            'Registos (predial, comercial, automóvel, civil);',
+            'Elaboração e revisão de contratos e outros documentos.'
           ]
         }
       ]
@@ -114,6 +132,7 @@ export default {
   }
 }
 </script>
+
 
 <style scoped>
 .services-page {

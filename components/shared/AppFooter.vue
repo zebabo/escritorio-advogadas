@@ -1,8 +1,7 @@
 <template>
   <footer id="contactos" class="footer">
     <div class="footer-container">
-      <!-- Informações de Contacto -->
-      <div class="footer-section">
+      <div class="footer-section contact-section">
         <h3>Contactos</h3>
         <div class="contact-info">
           <div class="contact-item">
@@ -17,7 +16,7 @@
             </a>
           </div>
 
- <div class="contact-item">
+          <div class="contact-item">
             <img src="/images/icons/mobile.png" alt="Telemóvel" class="icon-img" />
             <span>+351 910 035 536</span>
           </div>
@@ -41,8 +40,7 @@
         </div>
       </div>
 
-      <!-- Localização -->
-      <div class="footer-section">
+      <div class="footer-section location-section">
         <h3>Localização</h3>
         <div class="location-info">
           <div class="location-item">
@@ -64,8 +62,7 @@
         </div>
       </div>
 
-      <!-- Redes Sociais -->
-      <div class="footer-section">
+      <div class="footer-section social-section">
         <h3>Siga-nos</h3>
         <div class="social-links">
           <a href="https://www.facebook.com/SSCB.Advogadas" target="_blank" class="social-link" aria-label="Facebook">
@@ -75,16 +72,19 @@
             <img src="/images/icons/instagram.png" alt="Instagram" class="social-icon-img" />
           </a>
         </div>
+        <img src="/images/simbolo.svg" alt="Logo Escritório" class="simbol simbol-desktop" />
+      </div>
+
+      <div class="footer-section logo-section">
+        <img src="/images/simbolo.svg" alt="Logo Escritório" class="simbol simbol-mobile" />
       </div>
     </div>
 
-    <!-- Linha de Separação -->
     <div class="footer-divider"></div>
 
-    <!-- Copyright -->
     <div class="footer-bottom">
       <div class="copyright">
-        <p>&copy; {{ currentYear }} Escritório de Advogadas. Todos os direitos reservados.</p>
+        <p>© {{ currentYear }} Escritório de Advogadas. Todos os direitos reservados.</p>
       </div>
       <div class="legal-links">
         <a href="/political" class="legal-link">Política de Privacidade</a>
@@ -107,6 +107,7 @@ export default {
 </script>
 
 <style scoped>
+/* Estilos globais do Footer */
 .footer {
   background: #5c5545;
   color: #f1eee9;
@@ -117,17 +118,39 @@ export default {
 
 .footer-container {
   max-width: 1200px;
-  margin: 0 auto; /* Isto já está ok */
-  padding: 0 20px;
+  margin: 0 auto;
+  /* Margens laterais (padding) aumentadas e centralizadas para Desktop */
+  padding: 0 50px;
   display: grid;
+  /* Desktop: 3 colunas padrão */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
   margin-bottom: 40px;
   justify-content: center;
-  justify-items: center;
+  justify-items: center; /* Alinha os itens ao centro no grid de 3 colunas (Desktop) */
 }
 
+/* Estilos para o Logotipo */
+.simbol {
+  width: 120px;
+  height: auto;
+  margin-top: 50px;
+}
 
+/* Visibilidade do Logotipo - Desktop (> 1024px) */
+.logo-section {
+  display: none;
+}
+
+.simbol-desktop {
+  display: block;
+}
+
+.simbol-mobile {
+  display: none;
+}
+
+/* Estilos das Secções */
 .footer-section h3 {
   font-size: 1.8rem;
   font-weight: 300;
@@ -147,11 +170,20 @@ export default {
   background: #8b7355;
 }
 
+/* Centralização do título na secção Social (Desktop) */
+.footer-section.social-section {
+  text-align: center;
+  align-items: center;
+}
+.footer-section.social-section h3::after {
+  left: 25%;
+  transform: translateX(-50%);
+}
+
 /* Contactos */
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 15px;
 }
 
 .contact-item {
@@ -249,6 +281,7 @@ export default {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center; /* Manter centrado em desktop */
 }
 
 .social-link {
@@ -293,7 +326,8 @@ export default {
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* Margens laterais (padding) aumentadas e centralizadas para Desktop */
+  padding: 0 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -331,36 +365,173 @@ export default {
   font-size: 0.8rem;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
+
+/* --- Responsivo Tablet e Mobile (max-width: 1035px) --- */
+@media (max-width: 1035px) {
   .footer {
-    padding: 40px 0 20px;
+    padding: 45px 0 25px;
   }
 
   .footer-container {
-    grid-template-columns: 1fr;
+    /* Padding lateral para Tablet/Desktop Pequeno */
+    padding: 0 40px;
+    /* Layout 2x2, mantido até o fim */
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    text-align: center;
+    margin-bottom: 30px;
+
+    /* ALTERADO: Centraliza a posição de todo o bloco 2x2 */
+    justify-items: center;
+    text-align: left;
   }
 
-  .footer-section h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+  .footer-section.social-section {
+  text-align: center;
+  align-items: center;
+  margin-left: -100px;
+}
+
+
+.footer-section.social-section h3::after {
+  left: 32%;
+  transform: translateX(-50%);
+}
+  /* Secções da Primeira Coluna (Contactos e Siga-nos) */
+  .contact-section,
+  .social-section {
+    /* Define a secção para alinhar o seu conteúdo à esquerda */
+    text-align: left;
+  }
+
+  /* CRUCIAL: Alinha o Título e a Linha (H3) de Contactos e Siga-nos à esquerda */
+  .contact-section h3::after,
+  .social-section h3::after {
+    left: 0;
+    transform: none;
+  }
+
+  /* CRUCIAL: Alinha os ícones de redes sociais à esquerda */
+  .social-links {
+    justify-content: flex-start;
+  }
+
+  /* Secções da Segunda Coluna (Localização e Logotipo) */
+  .location-section,
+  .logo-section {
+    /* Faz com que os blocos da segunda coluna se centrem na sua célula */
+    justify-self: center;
+  }
+
+
+  .footer-bottom {
+    padding: 0 40px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .simbol-desktop {
+    display: none;
+  }
+  .simbol-mobile {
+    display: block;
+    margin-top: 0;
+    width: 120px;
+  }
+  .footer-divider {
+    margin: 30px auto 25px;
+  }
+  .contact-item span,
+  .contact-link span,
+  .location-link div p {
+    font-size: 0.9rem;
+  }
+  .copyright p,
+  .legal-link {
+    font-size: 0.85rem;
+  }
+
+  /* Reordenamento 2x2: */
+  .contact-section { order: 1; }
+  .location-section { order: 2; }
+  .social-section { order: 3; }
+  .logo-section {
+    display: flex;
+    order: 4;
+    justify-content: center; /* Manter centrado na sua célula para melhor visual */
+  }
+}
+
+/* --- Responsivo Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+  /* Mantém as regras de alinhamento e centralização do 1024px */
+  .footer {
+    padding: 35px 0 20px;
+  }
+
+  .footer-container {
+    padding: 0 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding: 0 30px;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .footer-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+  }
+
+  .contact-item span,
+  .contact-link span,
+  .location-link div p {
+    font-size: 0.8rem;
   }
 
   .contact-item,
   .location-item {
-    justify-content: center;
+    padding: 8px 0;
   }
 
-  .social-links {
-    justify-content: center;
+  .contact-item .icon-img {
+    width: 18px;
+    height: 18px;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 15px;
+  .footer-section.social-section h3::after {
+  left: 38%;
+  transform: translateX(-50%);
+}
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icon-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .simbol-mobile {
+    width: 100px;
+  }
+
+  .footer-divider {
+    margin: 25px auto 20px;
+  }
+
+  .copyright p,
+  .legal-link {
+    font-size: 0.8rem;
   }
 
   .legal-links {
@@ -368,18 +539,70 @@ export default {
   }
 }
 
+/* --- Responsivo Mobile Pequeno (max-width: 480px) --- */
 @media (max-width: 480px) {
+  /* Mantém as regras de alinhamento e centralização do 1024px */
+  .footer {
+    padding: 30px 0 18px;
+  }
+
   .footer-container {
-    padding: 0 15px;
+    padding: 0 30px;
+    gap: 15px;
+    margin-bottom: 15px;
   }
 
   .footer-bottom {
-    padding: 0 15px;
+    padding: 0 20px;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+
+  .footer-section.social-section h3::after {
+  left: 40%;
+  transform: translateX(-50%);
+}
+
+  .contact-item,
+  .location-item {
+    padding: 6px 0;
+  }
+
+  .contact-item span,
+  .contact-link span,
+  .location-link div p {
+    font-size: 0.7rem;
+  }
+
+  .contact-item .icon-img {
+    width: 16px;
+    height: 16px;
   }
 
   .social-link {
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .social-icon-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .simbol-mobile {
+    width: 80px;
+  }
+
+  .copyright p,
+  .legal-link {
+    font-size: 0.75rem;
+  }
+
+  .footer-divider {
+    margin: 20px auto 18px;
   }
 }
 </style>
