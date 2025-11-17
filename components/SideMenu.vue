@@ -54,7 +54,7 @@ export default {
   setTimeout(() => {
     this.$router.push(path)
     window.scrollTo(0, 0) // scroll instantâneo
-  }, 400)
+  })
 }
   },
   mounted() {
