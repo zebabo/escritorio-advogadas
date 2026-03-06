@@ -27,7 +27,8 @@
 import ArticlesCarousel from '../components/ArticlesCarousel.vue'
 import AppFooter from '../components/shared/AppFooter.vue'
 import HomeButton from '../components/shared/HomeButton.vue'
-import articlesData from '../data/articles.json'
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
 
 export default {
   name: 'ArticlesView',
@@ -38,7 +39,15 @@ export default {
   },
   data() {
     return {
-      articles: articlesData
+      articles: []
+    }
+  },
+  async created() {
+    try {
+      const res = await fetch(`${API_URL}/api/articles`)
+      this.articles = await res.json()
+    } catch (err) {
+      console.error('Erro ao carregar artigos:', err)
     }
   }
 }
@@ -52,7 +61,6 @@ export default {
   overflow-x: hidden;
 }
 
-/* Header da página */
 .articles-header {
   background: #f1eee9;
   padding: 120px 0 60px 0;
@@ -97,12 +105,10 @@ export default {
   margin: 0 auto;
 }
 
-/* Conteúdo dos artigos */
 .articles-content {
   background: #f1eee9;
 }
 
-/* Responsividade */
 @media (max-width: 1024px) {
   .articles-header {
     padding: 100px 0 50px 0;
@@ -152,7 +158,7 @@ export default {
     padding: 60px 0 30px 0;
   }
 
- .page-title {
+  .page-title {
     font-size: 2rem;
   }
 

@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SideMenu from '../components/SideMenu.vue'
+import SideMenu from './components/SideMenu.vue'
 
 export default {
   name: 'App',
