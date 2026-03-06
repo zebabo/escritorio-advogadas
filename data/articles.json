@@ -22,5 +22,17 @@
     "category": "Direito de Estrangeiros",
     "tags": ["Imigração", "Lei 61/2025", "AIMA", "Residência"],
     "readTime": 10
+  },
+  {
+    "id": 3,
+    "title": "Consumo de Estupefacientes: Crime ou Contraordenação?",
+    "excerpt": "O Decreto-Lei n.º 15/93, de 22 de janeiro, inicialmente punia o consumo de estupefacientes como crime, mas alterações posteriores mudaram esse enquadramento para a maioria dos casos. Hoje, o consumo próprio em pequenas quantidades é tratado como contraordenação pela Lei n.º 30/2000, de 29 de novembro.",
+    "fullContent": "<h4>Evolução Legislativa</h4><p>Originalmente, o artigo 40.º do Decreto-Lei n.º 15/93 previa pena de prisão até 3 meses ou pena de multa até 30 dias para consumo, cultivo, aquisição ou detenção para consumo próprio de substâncias das tabelas I a IV, agravando-se a pena se excedesse o consumo médio individual de 5 dias (pena de prisão até 1 ano ou de multa até 120 dias). Não obstante, muitas alterações legislativas se seguiram.</p><br/><h4>Limite Quantitativo e Jurisprudência Uniformizadora</h4><p>Atualmente, a Lei n.º 30/2000 fixa o limite em 10 dias de consumo médio individual, servindo como indício contra consumo exclusivo próprio quando excedido.</p><br/><h4>Determinação das Quantidades</h4><p>Os limites diários são definidos pela Portaria n.º 94/96, de 26 de março, no artigo 9.º e no mapa anexo, baseados em dados epidemiológicos para substâncias das tabelas I a IV do Decreto-Lei n.º 15/93. Esses valores são indicativos, avaliados como prova pericial, considerando pureza do princípio ativo, não o peso bruto. Exames laboratoriais são essenciais para quantificar o princípio ativo, podendo o tribunal afastar os limites mediante fundamentação.</p><br/><h4>Implicações Práticas</h4><p>Em casos de detenção, requer-se exame pericial para aferir se a quantidade de produto estupefaciente excede 10 dias de consumo médio, analisando hábitos próprios do consumidor e pureza da substância.</p>",
+    "author": "Sara S. Costa",
+    "authorImage": "/images/sara.png",
+    "date": "2025-03-06",
+    "category": "Direito Penal",
+    "tags": ["Estupefacientes", "Contraordenação", "Direito Penal"],
+    "readTime": 6
   }
 ]
