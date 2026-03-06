@@ -91,13 +91,15 @@
           </div>
 
           <div class="form-group">
-            <label>Resumo (excerpt) *</label>
+            <label>Resumo *</label>
             <textarea v-model="form.excerpt" rows="3" placeholder="Breve descrição do artigo..." required></textarea>
           </div>
 
           <div class="form-group">
-            <label>Conteúdo completo * <span class="hint">(pode usar HTML: &lt;h4&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;br/&gt;)</span></label>
-            <textarea v-model="form.fullContent" rows="14" placeholder="Conteúdo completo do artigo em HTML..." required></textarea>
+            <label>Conteúdo completo *</label>
+            <div class="editor-wrapper">
+              <div id="quill-editor"></div>
+            </div>
           </div>
 
           <p v-if="formError" class="error-msg">{{ formError }}</p>
@@ -137,6 +139,7 @@ export default {
       globalMsg: '',
       globalMsgType: 'success',
       tagsInput: '',
+      quillEditor: null,
       form: this.emptyForm()
     }
   },
@@ -145,6 +148,8 @@ export default {
       this.$router.push('/admin')
       return
     }
+    // Carregar Quill dinamicamente
+    await this.loadQuill()
     await this.fetchArticles()
   },
   methods: {
@@ -161,6 +166,23 @@ export default {
         readTime: 5
       }
     },
+    loadQuill() {
+      return new Promise((resolve) => {
+        if (window.Quill) { resolve(); return }
+
+        // Carregar CSS
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = 'https://cdn.quilljs.com/1.3.7/quill.snow.css'
+        document.head.appendChild(link)
+
+        // Carregar JS
+        const script = document.createElement('script')
+        script.src = 'https://cdn.quilljs.com/1.3.7/quill.min.js'
+        script.onload = resolve
+        document.head.appendChild(script)
+      })
+    },
     async fetchArticles() {
       this.loading = true
       try {
@@ -172,7 +194,7 @@ export default {
         this.loading = false
       }
     },
-    openForm(article = null) {
+    async openForm(article = null) {
       this.formError = ''
       this.editingArticle = article
 
@@ -186,20 +208,58 @@ export default {
 
       this.showForm = true
       window.scrollTo({ top: 0, behavior: 'smooth' })
+
+      await this.$nextTick()
+      this.initQuill()
+    },
+    initQuill() {
+      if (this.quillEditor) {
+        this.quillEditor = null
+      }
+
+      const editorEl = document.getElementById('quill-editor')
+      if (!editorEl || !window.Quill) return
+
+      this.quillEditor = new window.Quill('#quill-editor', {
+        theme: 'snow',
+        placeholder: 'Escreva o conteúdo do artigo aqui...',
+        modules: {
+          toolbar: [
+            [{ header: [2, 3, false] }],
+            ['bold', 'italic', 'underline'],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            ['clean']
+          ]
+        }
+      })
+
+      if (this.form.fullContent) {
+        this.quillEditor.root.innerHTML = this.form.fullContent
+      }
     },
     closeForm() {
       this.showForm = false
       this.editingArticle = null
       this.formError = ''
+      this.quillEditor = null
     },
     onAuthorChange() {
       this.form.authorImage = AUTHORS[this.form.author] || ''
     },
     async saveArticle() {
       this.formError = ''
+
+      if (this.quillEditor) {
+        this.form.fullContent = this.quillEditor.root.innerHTML
+      }
+
+      if (!this.form.fullContent || this.form.fullContent === '<p><br></p>') {
+        this.formError = 'O conteúdo completo é obrigatório'
+        return
+      }
+
       this.saving = true
 
-      // Converter tags
       this.form.tags = this.tagsInput
         .split(',')
         .map(t => t.trim())
@@ -207,11 +267,7 @@ export default {
 
       const token = localStorage.getItem('admin_token')
       const isEditing = !!this.editingArticle
-
-      const url = isEditing
-        ? `${API_URL}/api/articles/${this.editingArticle.id}`
-        : `${API_URL}/api/articles`
-
+      const url = isEditing ? `${API_URL}/api/articles/${this.editingArticle.id}` : `${API_URL}/api/articles`
       const method = isEditing ? 'PUT' : 'POST'
 
       try {
@@ -227,10 +283,7 @@ export default {
         const data = await res.json()
 
         if (!res.ok) {
-          if (res.status === 401) {
-            this.logout()
-            return
-          }
+          if (res.status === 401) { this.logout(); return }
           this.formError = data.error || 'Erro ao guardar artigo'
           return
         }
@@ -293,7 +346,6 @@ export default {
   font-family: 'Aileron', sans-serif;
 }
 
-/* Sidebar */
 .sidebar {
   width: 220px;
   min-height: 100vh;
@@ -334,7 +386,6 @@ export default {
   padding: 10px 14px;
   cursor: pointer;
   border-left: 3px solid transparent;
-  transition: border-color 0.2s ease;
   font-family: 'Object Sans', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -357,11 +408,8 @@ export default {
   transition: background 0.2s ease;
 }
 
-.logout-btn:hover {
-  background: #4a473a;
-}
+.logout-btn:hover { background: #4a473a; }
 
-/* Main */
 .main-content {
   margin-left: 220px;
   flex: 1;
@@ -398,38 +446,19 @@ export default {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.new-article-btn:hover {
-  background: #4a473a;
-  transform: translateY(-2px);
-}
+.new-article-btn:hover { background: #4a473a; transform: translateY(-2px); }
 
-/* Global msg */
 .global-msg {
   padding: 14px 20px;
   margin-bottom: 30px;
   font-size: 1rem;
-  font-family: 'Aileron', sans-serif;
   border-left: 4px solid;
 }
 
-.global-msg.success {
-  background: #eaf5ea;
-  color: #2d6a2d;
-  border-color: #2d6a2d;
-}
+.global-msg.success { background: #eaf5ea; color: #2d6a2d; border-color: #2d6a2d; }
+.global-msg.error { background: #fdecea; color: #c0392b; border-color: #c0392b; }
 
-.global-msg.error {
-  background: #fdecea;
-  color: #c0392b;
-  border-color: #c0392b;
-}
-
-/* Article rows */
-.state-msg {
-  color: #5c5545;
-  font-size: 1.1rem;
-  padding: 20px 0;
-}
+.state-msg { color: #5c5545; font-size: 1.1rem; padding: 20px 0; }
 
 .article-row {
   display: flex;
@@ -442,15 +471,9 @@ export default {
   transition: box-shadow 0.2s ease;
 }
 
-.article-row:hover {
-  box-shadow: 0 6px 20px rgba(139, 115, 85, 0.15);
-}
+.article-row:hover { box-shadow: 0 6px 20px rgba(139, 115, 85, 0.15); }
 
-.article-row-info {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
+.article-row-info { display: flex; flex-direction: column; gap: 6px; }
 
 .article-row-category {
   font-size: 0.85rem;
@@ -468,17 +491,9 @@ export default {
   margin: 0;
 }
 
-.article-row-meta {
-  font-size: 0.9rem;
-  color: #8b7355;
-  font-family: 'Aileron', sans-serif;
-}
+.article-row-meta { font-size: 0.9rem; color: #8b7355; }
 
-.article-row-actions {
-  display: flex;
-  gap: 12px;
-  flex-shrink: 0;
-}
+.article-row-actions { display: flex; gap: 12px; flex-shrink: 0; }
 
 .btn-edit {
   background: none;
@@ -493,10 +508,7 @@ export default {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.btn-edit:hover {
-  background: #5c5545;
-  color: #f1eee9;
-}
+.btn-edit:hover { background: #5c5545; color: #f1eee9; }
 
 .btn-delete {
   background: none;
@@ -511,12 +523,8 @@ export default {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.btn-delete:hover {
-  background: #c0392b;
-  color: #fff;
-}
+.btn-delete:hover { background: #c0392b; color: #fff; }
 
-/* Form */
 .form-header {
   display: flex;
   justify-content: space-between;
@@ -551,10 +559,7 @@ export default {
   max-width: 900px;
 }
 
-.form-row {
-  display: flex;
-  flex-direction: column;
-}
+.form-row { display: flex; flex-direction: column; }
 
 .form-row.two-cols {
   display: grid;
@@ -562,11 +567,7 @@ export default {
   gap: 24px;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+.form-group { display: flex; flex-direction: column; gap: 8px; }
 
 .form-group label {
   font-size: 0.9rem;
@@ -606,17 +607,38 @@ export default {
   background: #fff;
 }
 
-.error-msg {
-  color: #c0392b;
-  font-size: 0.95rem;
-  margin: 0;
+.editor-wrapper :deep(.ql-toolbar) {
+  border: 2px solid #5c5545;
+  border-bottom: none;
+  background: #f1eee9;
+  font-family: 'Object Sans', sans-serif;
 }
 
-.form-actions {
-  display: flex;
-  gap: 16px;
-  padding-top: 10px;
+.editor-wrapper :deep(.ql-container) {
+  border: 2px solid #5c5545;
+  font-size: 1rem;
+  font-family: 'Aileron', sans-serif;
+  min-height: 250px;
+  background: #ffffff;
 }
+
+.editor-wrapper :deep(.ql-editor) {
+  min-height: 250px;
+  color: #5c5545;
+  line-height: 1.8;
+}
+
+.editor-wrapper :deep(.ql-editor.ql-blank::before) {
+  color: #a09880;
+  font-style: italic;
+}
+
+.editor-wrapper :deep(.ql-stroke) { stroke: #5c5545; }
+.editor-wrapper :deep(.ql-fill) { fill: #5c5545; }
+
+.error-msg { color: #c0392b; font-size: 0.95rem; margin: 0; }
+
+.form-actions { display: flex; gap: 16px; padding-top: 10px; }
 
 .btn-cancel {
   background: none;
@@ -631,10 +653,7 @@ export default {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.btn-cancel:hover {
-  background: #5c5545;
-  color: #f1eee9;
-}
+.btn-cancel:hover { background: #5c5545; color: #f1eee9; }
 
 .btn-save {
   background: #5c5545;
@@ -649,40 +668,14 @@ export default {
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-save:hover:not(:disabled) {
-  background: #4a473a;
-  transform: translateY(-2px);
-}
-
-.btn-save:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+.btn-save:hover:not(:disabled) { background: #4a473a; transform: translateY(-2px); }
+.btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
 
 @media (max-width: 768px) {
-  .sidebar {
-    display: none;
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 30px 24px;
-  }
-
-  .dashboard-header {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .form-row.two-cols {
-    grid-template-columns: 1fr;
-  }
-
-  .article-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; padding: 30px 24px; }
+  .dashboard-header { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .form-row.two-cols { grid-template-columns: 1fr; }
+  .article-row { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 </style>
